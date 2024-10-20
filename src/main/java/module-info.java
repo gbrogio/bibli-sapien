@@ -1,7 +1,9 @@
-module com.application.bibli_sapien {
+module com.application {
     requires javafx.controls;
     requires javafx.fxml;
 
-    opens com.application.bibli_sapien to javafx.fxml;
-    exports com.application.bibli_sapien;
+    opens com.application to javafx.fxml;
+    exports com.application;
+    exports com.application.interfaces;
+    exports com.application.screens;
 }
