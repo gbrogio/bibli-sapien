@@ -1,5 +1,6 @@
 package com.application.interfaces;
 
-public class Usuario {
+public interface Usuario {
+
   
 }
