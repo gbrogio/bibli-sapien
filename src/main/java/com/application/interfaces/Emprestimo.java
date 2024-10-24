@@ -1,5 +1,6 @@
 package com.application.interfaces;
 
-public interface Emprestimo {
-  
+public abstract class Emprestimo {
+  Livro livro;
+  Usuario usuario;
 }

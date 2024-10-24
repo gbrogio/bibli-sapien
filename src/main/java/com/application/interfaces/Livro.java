@@ -1,5 +1,5 @@
 package com.application.interfaces;
 
-public interface Livro {
-
+public abstract class Livro {
+  String name;
 }
