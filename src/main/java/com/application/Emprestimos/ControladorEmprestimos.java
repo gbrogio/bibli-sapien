@@ -61,7 +61,7 @@ public class ControladorEmprestimos extends ControladorTela {
     return null;
   }
 
-  public ArrayList<EmprestimoAbstrato> acharEprestimosPorcliente(int clienteId) {
+  public ArrayList<EmprestimoAbstrato> acharEprestimosPorCliente(int clienteId) {
     ArrayList<EmprestimoAbstrato> emprestimos = new ArrayList<EmprestimoAbstrato>();
     for (int i = 0; i < db.emprestimos.size(); i++) {
       if (db.emprestimos.get(i).clienteId == clienteId) {

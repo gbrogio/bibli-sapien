@@ -7,6 +7,8 @@ import com.application.interfaces.ClienteAbstrato;
 
 public class Database {
   public int idEmprestimo = 1;
+  public int idCliente = 1;
+  public int idLivros = 1;
 
   public ArrayList<EmprestimoAbstrato> emprestimos = new ArrayList<EmprestimoAbstrato>();
   public ArrayList<ClienteAbstrato> clientes = new ArrayList<ClienteAbstrato>();
