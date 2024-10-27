@@ -21,7 +21,7 @@ public class App extends Application {
 
     @Override
     public void start(@SuppressWarnings("exports") Stage stage) throws IOException {
-        scene = new Scene(loadFXML("emprestimos"), 768, 600);
+        scene = new Scene(loadFXML("menu"), 768, 600);
         stage.setTitle("Bibli Sapien");
         stage.setResizable(false);
         stage.initStyle(StageStyle.UNDECORATED);

@@ -4,7 +4,7 @@ package com.application.Emprestimos;
 import java.util.ArrayList;
 import java.util.Date;
 
-import com.application.Controlador;
+import com.application.ControladorTela;
 import com.application.Database.Database;
 import com.application.interfaces.EmprestimoAbstrato;
 
@@ -30,7 +30,7 @@ class Emprestimo extends EmprestimoAbstrato {
   }
 }
 
-public class ControladorEmprestimos extends Controlador {
+public class ControladorEmprestimos extends ControladorTela {
   Database db = Database.getInstance();
 
   public void emprestarLivro(int clienteId, int livroId) {
