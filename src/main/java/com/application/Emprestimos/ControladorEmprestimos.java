@@ -6,21 +6,20 @@ import java.util.Date;
 
 import com.application.Controlador;
 import com.application.Database.Database;
-import com.application.interfaces.AbstratoEmprestimo;
+import com.application.interfaces.EmprestimoAbstrato;
 
-class Emprestimo extends AbstratoEmprestimo {
+class Emprestimo extends EmprestimoAbstrato {
   Database db = Database.getInstance();
 
-  Emprestimo(int usuarioId, int livroId) {
-    this.usuario = usuarioId;
-    this.livro = livroId;
+  Emprestimo(int clienteId, int livroId) {
+    this.clienteId = clienteId;
+    this.livroId = livroId;
     this.id = db.idEmprestimo;
   }
 
-  Emprestimo (int usuarioId, int livroId, Date dataEmprestimo, Date dataDevolucao) {
-    this.usuario = usuarioId;
-    this.livro = livroId;
-    this.dataEmprestimo = dataEmprestimo;
+  Emprestimo (int clienteId, int livroId, Date dataDevolucao) {
+    this.clienteId = clienteId;
+    this.livroId = livroId;
     this.dataDevolucao = dataDevolucao;
     this.id = db.idEmprestimo;
   }
@@ -34,13 +33,13 @@ class Emprestimo extends AbstratoEmprestimo {
 public class ControladorEmprestimos extends Controlador {
   Database db = Database.getInstance();
 
-  public void emprestarLivro(int usuarioId, int livroId) {
-    Emprestimo emprestimo = new Emprestimo(usuarioId, livroId);
+  public void emprestarLivro(int clienteId, int livroId) {
+    Emprestimo emprestimo = new Emprestimo(clienteId, livroId);
     emprestimo.emprestarLivro();
   }
 
-  public void emprestarLivro(int usuarioId, int livroId, Date dataEmprestimo, Date dataDevolucao) {
-    Emprestimo emprestimo = new Emprestimo(usuarioId, livroId, dataEmprestimo, dataDevolucao);
+  public void emprestarLivro(int clienteId, int livroId, Date dataDevolucao) {
+    Emprestimo emprestimo = new Emprestimo(clienteId, livroId, dataDevolucao);
     emprestimo.emprestarLivro();
   }
 
@@ -53,7 +52,7 @@ public class ControladorEmprestimos extends Controlador {
     }
   }
 
-  public AbstratoEmprestimo acharEmprestimo(int emprestimoId) {
+  public EmprestimoAbstrato acharEmprestimo(int emprestimoId) {
     for (int i = 0; i < db.emprestimos.size(); i++) {
       if (db.emprestimos.get(i).id == emprestimoId) {
         return db.emprestimos.get(i);
@@ -62,10 +61,10 @@ public class ControladorEmprestimos extends Controlador {
     return null;
   }
 
-  public ArrayList<AbstratoEmprestimo> acharEprestimosPorUsuario(int usuarioId) {
-    ArrayList<AbstratoEmprestimo> emprestimos = new ArrayList<AbstratoEmprestimo>();
+  public ArrayList<EmprestimoAbstrato> acharEprestimosPorcliente(int clienteId) {
+    ArrayList<EmprestimoAbstrato> emprestimos = new ArrayList<EmprestimoAbstrato>();
     for (int i = 0; i < db.emprestimos.size(); i++) {
-      if (db.emprestimos.get(i).usuario == usuarioId) {
+      if (db.emprestimos.get(i).clienteId == clienteId) {
         emprestimos.add(db.emprestimos.get(i));
       }
     }

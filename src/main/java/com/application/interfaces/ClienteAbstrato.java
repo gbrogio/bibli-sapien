@@ -1,5 +1,5 @@
 package com.application.interfaces;
 
-public abstract class Usuario {
+public abstract class ClienteAbstrato {
   String name;
 }

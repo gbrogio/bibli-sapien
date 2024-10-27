@@ -1,16 +1,16 @@
 package com.application.Database;
 
 import java.util.ArrayList;
-import com.application.interfaces.AbstratoEmprestimo;
-import com.application.interfaces.Livro;
-import com.application.interfaces.Usuario;
+import com.application.interfaces.EmprestimoAbstrato;
+import com.application.interfaces.LivroAbstrato;
+import com.application.interfaces.ClienteAbstrato;
 
 public class Database {
   public int idEmprestimo = 1;
 
-  public ArrayList<AbstratoEmprestimo> emprestimos = new ArrayList<AbstratoEmprestimo>();
-  public ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
-  public ArrayList<Livro> livros = new ArrayList<Livro>();
+  public ArrayList<EmprestimoAbstrato> emprestimos = new ArrayList<EmprestimoAbstrato>();
+  public ArrayList<ClienteAbstrato> clientes = new ArrayList<ClienteAbstrato>();
+  public ArrayList<LivroAbstrato> livros = new ArrayList<LivroAbstrato>();
 
   private static Database instance;
 
