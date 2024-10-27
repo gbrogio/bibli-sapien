@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
@@ -14,11 +15,37 @@ import java.io.IOException;
 public class App extends Application {
 
     private static Scene scene;
+    private double xOffset = 0;
+    private double yOffset = 0;
+    private boolean moving = false;
 
     @Override
     public void start(@SuppressWarnings("exports") Stage stage) throws IOException {
-        scene = new Scene(loadFXML("emprestimos"), 640, 480);
+        scene = new Scene(loadFXML("emprestimos"), 768, 600);
+        stage.setTitle("Bibli Sapien");
+        stage.setResizable(false);
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(scene);
+
+        scene.setOnMousePressed(event -> {
+            if (event.getY() < 40) {
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+                moving = true;
+            }
+        });
+
+        scene.setOnMouseDragged(event -> {
+            if (moving) {
+                stage.setX(event.getScreenX() - xOffset);
+                stage.setY(event.getScreenY() - yOffset);
+            }
+        });
+
+        scene.setOnMouseReleased(event -> {
+            moving = false;
+        });
+
         stage.show();
     }
 
