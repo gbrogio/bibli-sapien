@@ -2,8 +2,10 @@ package com.application;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -37,8 +39,10 @@ public class App extends Application {
 
         scene.setOnMouseDragged(event -> {
             if (moving) {
-                stage.setX(event.getScreenX() - xOffset);
-                stage.setY(event.getScreenY() - yOffset);
+                double targetX = event.getScreenX() - xOffset;
+                double targetY = event.getScreenY() - yOffset;
+                stage.setX(stage.getX() + (targetX - stage.getX()) * 0.1);
+                stage.setY(stage.getY() + (targetY - stage.getY()) * 0.1);
             }
         });
 
