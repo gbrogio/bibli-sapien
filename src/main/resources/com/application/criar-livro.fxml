@@ -3,9 +3,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
@@ -13,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="600" maxWidth="-Infinity" minHeight="600" minWidth="-Infinity" prefHeight="600.0" prefWidth="768.0" style="-fx-background-color: #09090b;" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.application.screens.Clientes">
+<BorderPane maxHeight="600" maxWidth="-Infinity" minHeight="600" minWidth="-Infinity" prefHeight="600.0" prefWidth="768.0" style="-fx-background-color: #09090b;" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.application.screens.Livros">
    <top>
       <FlowPane alignment="CENTER_LEFT" orientation="VERTICAL" prefHeight="32.0" prefWidth="200.0" style="-fx-background-color: #18181b;" BorderPane.alignment="CENTER">
          <children>
@@ -55,7 +54,7 @@
    <left>
       <FlowPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0001;" BorderPane.alignment="CENTER">
          <children>
-            <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" onAction="#irParaClientes" style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;" text="PESQUISAR" textFill="WHITE">
+            <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" onAction="#irParaLivros" style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;" text="PESQUISAR" textFill="WHITE">
                <padding>
                   <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
                </padding>
@@ -66,7 +65,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" onAction="#irParaCriarCliente" style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;" text="CRIAR" textFill="WHITE">
+            <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" onAction="#irParaCriarLivro" style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;" text="CRIAR" textFill="WHITE">
                <padding>
                   <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
                </padding>
@@ -83,38 +82,65 @@
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <padding>
-            <Insets bottom="32.0" left="16.0" right="16.0" top="32.0" />
+            <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
          </padding>
          <children>
             <HBox prefHeight="34.0" prefWidth="200.0">
                <children>
-                  <VBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                  <VBox alignment="CENTER_LEFT" maxHeight="0.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="PESQUISAR" textOrigin="CENTER">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="CRIAR CLIENTES" textOrigin="CENTER">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Text>
                      </children>
                   </VBox>
-                  <TextField maxWidth="250.0" promptText="Código" style="-fx-background-radius: 0; -fx-background-color: #18181b88; -fx-text-fill: #fff; -fx-prompt-text-fill: #fff3;" HBox.hgrow="ALWAYS">
+               </children>
+            </HBox>
+            <HBox VBox.vgrow="ALWAYS">
+               <children>
+                  <FlowPane maxHeight="58.0" orientation="VERTICAL" vgap="8.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label text="Nome*:" textFill="WHITE" />
+                        <TextField maxWidth="300.0" prefWidth="300.0" promptText="Nome" style="-fx-background-radius: 0; -fx-background-color: #18181b88; -fx-text-fill: #fff; -fx-prompt-text-fill: #fff3;">
+                           <padding>
+                              <Insets bottom="8.0" left="16.0" right="8.0" top="8.0" />
+                           </padding>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </FlowPane>
+               </children>
+            </HBox>
+            <FlowPane alignment="CENTER_RIGHT" hgap="16.0">
+               <children>
+                  <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" onAction="#irParaLivros" style="-fx-background-radius: 0; -fx-background-color: #ef4444;" text="CANCELAR" textFill="WHITE">
                      <padding>
-                        <Insets bottom="8.0" left="16.0" right="8.0" top="8.0" />
+                        <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
                      </padding>
                      <font>
                         <Font size="14.0" />
                      </font>
-                  </TextField>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" onAction="#criarLivro" style="-fx-background-radius: 0; -fx-background-color: #18181b88;" text="SALVAR" textFill="WHITE">
+                     <padding>
+                        <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
+                     </padding>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                </children>
-            </HBox>
-            <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" style="-fx-background: #0000; -fx-background-color: #0000;" vbarPolicy="ALWAYS" VBox.vgrow="ALWAYS">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-              </content>
-               <VBox.margin>
-                  <Insets top="16.0" />
-               </VBox.margin>
-            </ScrollPane>
+            </FlowPane>
          </children>
       </VBox>
    </center>

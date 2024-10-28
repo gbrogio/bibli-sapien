@@ -9,9 +9,18 @@ import javafx.fxml.FXML;
 public class Livros extends ControladorTela {
     Database db = Database.getInstance();
 
+    @FXML  
+    public void irParaLivros() throws IOException {
+        this.irPara("livros");
+    }
+
+    @FXML  
+    public void irParaCriarLivro() throws IOException {
+        this.irPara("criar-livro");
+    }
+
     @FXML
-    public void genericFunction() throws IOException {
-        
+    public void criarLivro() throws IOException {
     }
 }
 

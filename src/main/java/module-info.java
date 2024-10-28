@@ -7,4 +7,5 @@ module com.application {
     exports com.application.Database;
     exports com.application.interfaces;
     exports com.application.screens;
+    opens com.application.screens;
 }
