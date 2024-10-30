@@ -1,10 +1,10 @@
 package com.application.interfaces;
 
 public abstract class LivroAbstrato {
-  int id;
-  String titulo;
-  String autor;
-  String genero;
-  int ano;
-  int quantidade;
+  public int id;
+  public String titulo;
+  public String autor;
+  public String genero;
+  public int ano;
+  public int quantidade;
 }
