@@ -90,7 +90,7 @@
                <children>
                   <VBox alignment="CENTER_LEFT" maxHeight="0.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="CRIAR CLIENTES" textOrigin="CENTER">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="CRIAR CLIENTE" textOrigin="CENTER">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
