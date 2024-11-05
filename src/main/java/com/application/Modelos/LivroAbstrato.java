@@ -1,4 +1,4 @@
-package com.application.interfaces;
+package com.application.Modelos;
 
 public abstract class LivroAbstrato {
   public int id;

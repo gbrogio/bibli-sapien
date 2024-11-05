@@ -1,6 +1,6 @@
-package com.application.screens;
+package com.application.Telas;
 
-import com.application.Emprestimos.ControladorEmprestimos;
+import com.application.Controladores.Emprestimos.ControladorEmprestimos;
 
 import java.io.IOException;
 import javafx.fxml.FXML;

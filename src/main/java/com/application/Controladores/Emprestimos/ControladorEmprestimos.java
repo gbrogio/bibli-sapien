@@ -1,45 +1,22 @@
-package com.application.Emprestimos;
-
+package com.application.Controladores.Emprestimos;
 
 import java.util.ArrayList;
 import java.util.Date;
 
 import com.application.ControladorTela;
 import com.application.Database.Database;
-import com.application.interfaces.EmprestimoAbstrato;
-
-class Emprestimo extends EmprestimoAbstrato {
-  Database db = Database.pegarInstancia();
-
-  Emprestimo(int clienteId, int livroId) {
-    this.clienteId = clienteId;
-    this.livroId = livroId;
-    this.id = db.idEmprestimo;
-  }
-
-  Emprestimo (int clienteId, int livroId, Date dataDevolucao) {
-    this.clienteId = clienteId;
-    this.livroId = livroId;
-    this.dataDevolucao = dataDevolucao;
-    this.id = db.idEmprestimo;
-  }
-
-  public void emprestarLivro() {
-    db.emprestimos.add(this);
-    db.idEmprestimo++;
-  }
-}
+import com.application.Modelos.EmprestimoAbstrato;
 
 public class ControladorEmprestimos extends ControladorTela {
   Database db = Database.pegarInstancia();
 
   public void emprestarLivro(int clienteId, int livroId) {
-    Emprestimo emprestimo = new Emprestimo(clienteId, livroId);
+    EmprestimoDAO emprestimo = new EmprestimoDAO(clienteId, livroId);
     emprestimo.emprestarLivro();
   }
 
   public void emprestarLivro(int clienteId, int livroId, Date dataDevolucao) {
-    Emprestimo emprestimo = new Emprestimo(clienteId, livroId, dataDevolucao);
+    EmprestimoDAO emprestimo = new EmprestimoDAO(clienteId, livroId, dataDevolucao);
     emprestimo.emprestarLivro();
   }
 

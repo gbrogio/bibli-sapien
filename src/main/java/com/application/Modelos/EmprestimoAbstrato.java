@@ -1,4 +1,4 @@
-package com.application.interfaces;
+package com.application.Modelos;
 
 import java.util.Date;
 import java.time.LocalDate;

@@ -5,7 +5,7 @@ module com.application {
     opens com.application to javafx.fxml;
     exports com.application;
     exports com.application.Database;
-    exports com.application.interfaces;
-    exports com.application.screens;
-    opens com.application.screens;
+    exports com.application.Modelos;
+    exports com.application.Telas;
+    opens com.application.Telas;
 }

@@ -1,9 +1,10 @@
 package com.application.Database;
 
 import java.util.ArrayList;
-import com.application.interfaces.EmprestimoAbstrato;
-import com.application.interfaces.LivroAbstrato;
-import com.application.interfaces.ClienteAbstrato;
+
+import com.application.Modelos.ClienteAbstrato;
+import com.application.Modelos.EmprestimoAbstrato;
+import com.application.Modelos.LivroAbstrato;
 
 public class Database {
   public int idEmprestimo = 1;
