@@ -14,7 +14,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
 public class Livros extends ControladorLivros {
-    Database db = Database.getInstance();
+    Database db = Database.pegarInstancia();
 
     @FXML
     private TextField titulo;

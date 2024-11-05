@@ -13,7 +13,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Clientes extends ControladorTela {
-    Database db = Database.getInstance();
+    Database db = Database.pegarInstancia();
 
     @FXML
     private TextField nome;

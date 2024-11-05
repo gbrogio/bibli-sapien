@@ -9,7 +9,7 @@ import com.application.Database.Database;
 import com.application.interfaces.EmprestimoAbstrato;
 
 class Emprestimo extends EmprestimoAbstrato {
-  Database db = Database.getInstance();
+  Database db = Database.pegarInstancia();
 
   Emprestimo(int clienteId, int livroId) {
     this.clienteId = clienteId;
@@ -31,7 +31,7 @@ class Emprestimo extends EmprestimoAbstrato {
 }
 
 public class ControladorEmprestimos extends ControladorTela {
-  Database db = Database.getInstance();
+  Database db = Database.pegarInstancia();
 
   public void emprestarLivro(int clienteId, int livroId) {
     Emprestimo emprestimo = new Emprestimo(clienteId, livroId);
