@@ -10,6 +10,12 @@ public class ControladorLivros extends ControladorTela {
     livro.adicionarLivro();
   }
 
+  public void exibirLivro(int livroId, String titulo, String autor, String genero, int quantidade, Date ano){
+  }
+  
+  public void alterarLivro(int livroId){
+  }
+  
   public void removerLivro(int livroId) {
   }
 }
