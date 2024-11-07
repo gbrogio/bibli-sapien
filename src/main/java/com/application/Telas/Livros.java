@@ -62,7 +62,18 @@ public class Livros extends ControladorLivros {
         salvarLivroBotao.setDisable(true);
         desabilitarCampos(true);
 
-        this.removerLivro(0);
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                Platform.runLater(() -> {
+                    salvarLivroBotao.setText("SALVAR");
+                    salvarLivroBotao.setDisable(false);
+                    desabilitarCampos(false);
+                    limparCampos();
+                });
+                timer.cancel();
+            }
+        }, 2000);
     }
 }
 
