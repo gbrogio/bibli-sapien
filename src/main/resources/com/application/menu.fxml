@@ -8,13 +8,18 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="600" maxWidth="-Infinity" minHeight="600" minWidth="-Infinity" prefHeight="600.0" prefWidth="768.0" style="-fx-background-color: #09090b;" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.application.Telas.Menu">
+<BorderPane maxHeight="600" maxWidth="-Infinity" minHeight="600" minWidth="-Infinity"
+   prefHeight="600.0" prefWidth="768.0" style="-fx-background-color: #09090b;"
+   xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1"
+   fx:controller="com.application.Telas.Menu">
    <top>
-      <FlowPane alignment="CENTER_LEFT" orientation="VERTICAL" prefHeight="32.0" prefWidth="200.0" style="-fx-background-color: #18181b;" BorderPane.alignment="CENTER">
+      <FlowPane alignment="CENTER_LEFT" orientation="VERTICAL" prefHeight="32.0" prefWidth="200.0"
+         style="-fx-background-color: #18181b;" BorderPane.alignment="CENTER">
          <children>
             <FlowPane alignment="CENTER_LEFT" prefWidth="384.0">
                <children>
-                  <Button mnemonicParsing="false" style="-fx-background-color: #0000;" text="BIBLI SAPIEN" textFill="WHITE">
+                  <Button mnemonicParsing="false" style="-fx-background-color: #0000;"
+                     text="BIBLI SAPIEN" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="11.0" />
                      </font>
@@ -31,7 +36,10 @@
                         <Font name="SansSerif Bold" size="10.0" />
                      </font>
                   </Text>
-                  <Button maxWidth="36.0" minWidth="34.0" mnemonicParsing="false" onAction="#close" prefHeight="30.0" prefWidth="34.0" style="-fx-background-radius: 0; -fx-background-color: #ef4444;" text="X" textFill="WHITE">
+                  <Button maxWidth="36.0" minWidth="34.0" mnemonicParsing="false" onAction="#close"
+                     prefHeight="30.0" prefWidth="34.0"
+                     style="-fx-background-radius: 0; -fx-background-color: #ef4444;" text="X"
+                     textFill="WHITE">
                      <FlowPane.margin>
                         <Insets left="16.0" />
                      </FlowPane.margin>
@@ -45,9 +53,13 @@
       </FlowPane>
    </top>
    <center>
-      <FlowPane alignment="CENTER" orientation="VERTICAL" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0001; -fx-vgap: 16px;" BorderPane.alignment="CENTER">
+      <FlowPane alignment="CENTER" orientation="VERTICAL" prefHeight="200.0" prefWidth="200.0"
+         style="-fx-background-color: #0001; -fx-vgap: 16px;" BorderPane.alignment="CENTER">
          <children>
-            <Button alignment="CENTER" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" onAction="#irParaEmprestimos" prefWidth="300.0" style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;" text="EMPRESTIMOS" textFill="WHITE">
+            <Button alignment="CENTER" cache="true" contentDisplay="CENTER" depthTest="ENABLE"
+               mnemonicParsing="false" onAction="#irParaEmprestimos" prefWidth="300.0"
+               style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;"
+               text="EMPRESTIMOS" textFill="WHITE">
                <padding>
                   <Insets bottom="16.0" left="32.0" right="32.0" top="16.0" />
                </padding>
@@ -58,7 +70,10 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button alignment="CENTER" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" onAction="#irParaLivros" prefWidth="300.0" style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;" text="LIVROS" textFill="WHITE">
+            <Button alignment="CENTER" cache="true" contentDisplay="CENTER" depthTest="ENABLE"
+               mnemonicParsing="false" onAction="#irParaLivros" prefWidth="300.0"
+               style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;"
+               text="LIVROS" textFill="WHITE">
                <padding>
                   <Insets bottom="16.0" left="32.0" right="32.0" top="16.0" />
                </padding>
@@ -69,7 +84,10 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button alignment="CENTER" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" onAction="#irParaClientes" prefWidth="300.0" style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;" text="CLIENTES" textFill="WHITE">
+            <Button alignment="CENTER" cache="true" contentDisplay="CENTER" depthTest="ENABLE"
+               mnemonicParsing="false" onAction="#irParaClientes" prefWidth="300.0"
+               style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;"
+               text="CLIENTES" textFill="WHITE">
                <padding>
                   <Insets bottom="16.0" left="32.0" right="32.0" top="16.0" />
                </padding>

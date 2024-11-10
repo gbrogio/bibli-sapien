@@ -8,17 +8,17 @@ import javafx.fxml.FXML;
 
 public class Menu extends ControladorTela {
 
-  @FXML  
+  @FXML
   public void irParaEmprestimos() throws IOException {
     this.irPara("emprestimos");
   }
 
-  @FXML  
+  @FXML
   public void irParaLivros() throws IOException {
     this.irPara("livros");
   }
 
-  @FXML  
+  @FXML
   public void irParaClientes() throws IOException {
     this.irPara("clientes");
   }

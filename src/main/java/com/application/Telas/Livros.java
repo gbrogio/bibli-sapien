@@ -29,12 +29,12 @@ public class Livros extends ControladorLivros {
     @FXML
     private Button salvarLivroBotao;
 
-    @FXML  
+    @FXML
     public void irParaLivros() throws IOException {
         this.irPara("livros");
     }
 
-    @FXML  
+    @FXML
     public void irParaCriarLivro() throws IOException {
         this.irPara("criar-livro");
     }
@@ -76,4 +76,3 @@ public class Livros extends ControladorLivros {
         }, 2000);
     }
 }
-
