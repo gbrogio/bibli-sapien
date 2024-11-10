@@ -168,7 +168,7 @@
                      <children>
                         <HBox prefHeight="85.0" prefWidth="114.0">
                            <children>
-                              <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" onAction="#irParaLivros" style="-fx-background-radius: 0; -fx-background-color: #ef4444;" text="CANCELAR" textFill="WHITE">
+                              <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" style="-fx-background-radius: 0; -fx-background-color: #ef4444;" text="CANCELAR" textFill="WHITE">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -183,7 +183,7 @@
                         </HBox>
                         <HBox prefHeight="85.0" prefWidth="108.0">
                            <children>
-                              <Button fx:id="salvarLivroBotao" alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" onAction="#criarLivro" style="-fx-background-radius: 0; -fx-background-color: #18181b88;" text="SALVAR" textFill="WHITE">
+                              <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" style="-fx-background-radius: 0; -fx-background-color: #18181b88;" text="SALVAR" textFill="WHITE">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
