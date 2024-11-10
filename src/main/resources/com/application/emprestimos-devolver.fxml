@@ -61,7 +61,7 @@
    <left>
       <FlowPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0001;" BorderPane.alignment="CENTER">
          <children>
-            <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;" text="PESQUISAR" textFill="WHITE">
+            <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" onAction="#irParaEmprestimos" style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;" text="PESQUISAR" textFill="WHITE">
                <padding>
                   <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
                </padding>
@@ -72,7 +72,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;" text="EMPRESTAR" textFill="WHITE">
+            <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" onAction="#irParaEmprestarEmprestimos" style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;" text="EMPRESTAR" textFill="WHITE">
                <padding>
                   <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
                </padding>
@@ -83,7 +83,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;" text="DEVOLVER" textFill="WHITE">
+            <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" onAction="#irParaDevolverEmprestimos" style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;" text="DEVOLVER" textFill="WHITE">
                <padding>
                   <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
                </padding>
