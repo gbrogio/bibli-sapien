@@ -14,7 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
-public class Emprestimos extends ControladorEmprestimos{
+public class Emprestimos extends ControladorEmprestimos {
     Database db = Database.pegarInstancia();
     
     @FXML
@@ -76,5 +76,14 @@ public class Emprestimos extends ControladorEmprestimos{
                 timer.cancel();
             }
         }, 2000);
+
+        // this.emprestarLivro(0, 0);
+        // this.emprestarLivro(0, 0, null);
+
+        // this.pegarEmprestimo(0);
+        // this.pegarTodosEmprestimos();
+        // this.pegarEprestimosPorCliente(0);
+
+        // devolverLivro(0);
     }    
 }
