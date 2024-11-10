@@ -1,5 +1,6 @@
 package com.application.Telas;
 
+import com.application.ControladorTela;
 import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -13,7 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
-public class Emprestimos extends ControladorEmprestimos {
+public class Emprestimos extends ControladorEmprestimos{
     Database db = Database.pegarInstancia();
     
     @FXML
@@ -34,12 +35,12 @@ public class Emprestimos extends ControladorEmprestimos {
     
     @FXML  
     public void irParaDevolverEmprestimos() throws IOException {
-        this.irPara("emprestimos_devolver");
+        this.irPara("emprestimos-devolver");
     }
 
     @FXML  
     public void irParaEmprestarEmprestimos() throws IOException {
-        this.irPara("emprestimos_emprestar");
+        this.irPara("emprestimos-emprestar");
     }
 
     private void limparCampos() {
