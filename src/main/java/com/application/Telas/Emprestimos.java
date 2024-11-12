@@ -25,7 +25,11 @@ public class Emprestimos extends ControladorEmprestimos {
     @FXML
     private DatePicker dataEmprestimo;
     @FXML
+    private DatePicker dataDevolucao;
+    @FXML
     private Button salvarEmprestimoBotao;
+    @FXML
+    private Button salvarEmprestimoBotaoDevolucao;
     
     @FXML  
     public void irParaEmprestimos() throws IOException {
@@ -49,6 +53,13 @@ public class Emprestimos extends ControladorEmprestimos {
         autor.setText("");
     }
     
+    private void limparCamposDevolucao() {
+        livroId.setText("");
+        pessoaId.setText("");
+        dataDevolucao.setValue(null);
+        autor.setText("");
+    }
+    
     private void desabilitarCampos(boolean desabilitar) {
         livroId.setDisable(desabilitar);
         pessoaId.setDisable(desabilitar);
@@ -56,8 +67,15 @@ public class Emprestimos extends ControladorEmprestimos {
         autor.setDisable(desabilitar);
     }
     
+    private void desabilitarCamposDevolucao(boolean desabilitar) {
+        livroId.setDisable(desabilitar);
+        pessoaId.setDisable(desabilitar);
+        dataDevolucao.setDisable(desabilitar);
+        autor.setDisable(desabilitar);
+    }
+    
     @FXML
-    public void criarEmprestimo() throws IOException {
+    public void emprestimoEmprestar() throws IOException {
         Timer timer = new Timer();
         salvarEmprestimoBotao.setText("SALVANDO...");
         salvarEmprestimoBotao.setDisable(true);
@@ -75,7 +93,28 @@ public class Emprestimos extends ControladorEmprestimos {
                 timer.cancel();
             }
         }, 2000);
+    }
 
+    public void emprestimoDevolver() throws IOException {
+        Timer timer = new Timer();
+        salvarEmprestimoBotaoDevolucao.setText("SALVANDO...");
+        salvarEmprestimoBotaoDevolucao.setDisable(true);
+        desabilitarCamposDevolucao(true);
+
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                Platform.runLater(() -> {
+                    salvarEmprestimoBotaoDevolucao.setText("SALVAR");
+                    salvarEmprestimoBotaoDevolucao.setDisable(false);
+                    desabilitarCamposDevolucao(false);
+                    limparCamposDevolucao();
+                });
+                timer.cancel();
+            }
+        }, 2000);
+    }    
+    
         // this.emprestarLivro(0, 0);
         // this.emprestarLivro(0, 0, null);
 
@@ -84,5 +123,5 @@ public class Emprestimos extends ControladorEmprestimos {
         // this.pegarEprestimosPorCliente(0);
 
         // devolverLivro(0);
-    }    
+    
 }
