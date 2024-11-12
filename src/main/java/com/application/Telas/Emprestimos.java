@@ -21,8 +21,6 @@ public class Emprestimos extends ControladorEmprestimos {
     @FXML
     private TextField pessoaId;
     @FXML
-    private TextField autor;
-    @FXML
     private DatePicker dataEmprestimo;
     @FXML
     private DatePicker dataDevolucao;
@@ -50,28 +48,24 @@ public class Emprestimos extends ControladorEmprestimos {
         livroId.setText("");
         pessoaId.setText("");
         dataEmprestimo.setValue(null);
-        autor.setText("");
     }
     
     private void limparCamposDevolucao() {
         livroId.setText("");
         pessoaId.setText("");
         dataDevolucao.setValue(null);
-        autor.setText("");
     }
     
     private void desabilitarCampos(boolean desabilitar) {
         livroId.setDisable(desabilitar);
         pessoaId.setDisable(desabilitar);
         dataEmprestimo.setDisable(desabilitar);
-        autor.setDisable(desabilitar);
     }
     
     private void desabilitarCamposDevolucao(boolean desabilitar) {
         livroId.setDisable(desabilitar);
         pessoaId.setDisable(desabilitar);
         dataDevolucao.setDisable(desabilitar);
-        autor.setDisable(desabilitar);
     }
     
     @FXML
