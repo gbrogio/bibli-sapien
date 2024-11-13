@@ -6,7 +6,7 @@ import com.application.Database.Database;
 import com.application.Modelos.LivroAbstrato;
 
 public class LivroDAO extends LivroAbstrato {
-  Database db = Database.pegarInstancia();
+  public static Database db = Database.pegarInstancia();
 
   public LivroDAO(int livroId, String titulo, String autor, String genero, int quantidade, Date ano) {
     this.id = db.idLivros;
@@ -17,27 +17,31 @@ public class LivroDAO extends LivroAbstrato {
     this.ano = ano;
   }
 
-  public void adicionarLivro() {
+  public void adicionarLivro(int livroId, String titulo, String autor, String genero, int quantidade, Date ano) {
     db.livros.add(this);
-<<<<<<< HEAD
-    db.idLivros++;}
-  
-  public void exibirLivro(int livroId, String titulo, String autor, String genero, int quantidade, Date ano){
-    db.livros.get(livroId);
-=======
     db.idLivros++;
   }
 
-  public void exibirLivro(int livroId) {
-    db.livros.get(id);
->>>>>>> 4eb2945d18171139475bb2114bcb0135dcab95b1
+  public static void exibirLivro(int livroId) {
+    db.livros.get(livroId);
   }
 
-  public void alterarLivro(int livroId) {
-
+  public void alterarLivro(int livroId, String titulo, String autor, String genero, int quantidade, Date ano) {
+    LivroAbstrato livro = db.livros.get(livroId);
+    livro.titulo = titulo;
+    livro.autor = autor;
+    livro.genero = genero;
+    livro.quantidade = 0;
+    livro.ano = ano;
+    db.livros.add(this);
   }
 
-  public void removerLivro(int livroId) {
-    db.livros.remove(this);
-  }
+  public static void removerLivro(int livroId) {
+    for (int c = 0; c< db.livros.size();c++){
+        if (db.livros.get(c).id == livroId){
+            db.livros.remove(c);
+            break;
+            }
+        }
+    }
 }
