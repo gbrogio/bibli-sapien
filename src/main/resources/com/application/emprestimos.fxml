@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -13,7 +19,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="600" maxWidth="-Infinity" minHeight="600" minWidth="-Infinity" prefHeight="600.0" prefWidth="768.0" style="-fx-background-color: #09090b;" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.application.Telas.Emprestimos">
+<BorderPane maxHeight="600" maxWidth="-Infinity" minHeight="600" minWidth="-Infinity" prefHeight="600.0" prefWidth="768.0" style="-fx-background-color: #09090b;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.application.Telas.Emprestimos">
    <top>
       <FlowPane alignment="CENTER_LEFT" orientation="VERTICAL" prefHeight="32.0" prefWidth="200.0" style="-fx-background-color: #18181b;" BorderPane.alignment="CENTER">
          <children>
@@ -55,7 +61,7 @@
    <left>
       <FlowPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0001;" BorderPane.alignment="CENTER">
          <children>
-            <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;" text="PESQUISAR" textFill="WHITE">
+            <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" onAction="#irParaEmprestimos" style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;" text="PESQUISAR" textFill="WHITE">
                <padding>
                   <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
                </padding>
@@ -66,7 +72,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;" text="EMPRESTAR" textFill="WHITE">
+            <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" onAction="#irParaEmprestarEmprestimos" style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;" text="EMPRESTAR" textFill="WHITE">
                <padding>
                   <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
                </padding>
@@ -77,7 +83,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;" text="DEVOLVER" textFill="WHITE">
+            <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" onAction="#irParaDevolverEmprestimos" style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;" text="DEVOLVER" textFill="WHITE">
                <padding>
                   <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
                </padding>
@@ -119,9 +125,9 @@
                </children>
             </HBox>
             <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" style="-fx-background: #0000; -fx-background-color: #0000;" vbarPolicy="ALWAYS" VBox.vgrow="ALWAYS">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-              </content>
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+               </content>
                <VBox.margin>
                   <Insets top="16.0" />
                </VBox.margin>

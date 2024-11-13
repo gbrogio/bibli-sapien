@@ -39,8 +39,8 @@ public class App extends Application {
             if (moving) {
                 double targetX = event.getScreenX() - xOffset;
                 double targetY = event.getScreenY() - yOffset;
-                stage.setX(stage.getX() + (targetX - stage.getX()) * 0.1);
-                stage.setY(stage.getY() + (targetY - stage.getY()) * 0.1);
+                stage.setX(stage.getX() + (targetX - stage.getX()) * 0.5);
+                stage.setY(stage.getY() + (targetY - stage.getY()) * 0.5);
             }
         });
 

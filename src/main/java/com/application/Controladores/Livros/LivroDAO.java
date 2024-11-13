@@ -17,19 +17,27 @@ public class LivroDAO extends LivroAbstrato {
     this.ano = ano;
   }
 
-  public void adicionarLivro(String titulo, String autor, String genero, int quantidade, Date ano){
+  public void adicionarLivro() {
     db.livros.add(this);
+<<<<<<< HEAD
     db.idLivros++;}
   
   public void exibirLivro(int livroId, String titulo, String autor, String genero, int quantidade, Date ano){
     db.livros.get(livroId);
+=======
+    db.idLivros++;
   }
-  
-  public void alterarLivro(int livroId){
-  
+
+  public void exibirLivro(int livroId) {
+    db.livros.get(id);
+>>>>>>> 4eb2945d18171139475bb2114bcb0135dcab95b1
   }
-  
-  public void removerLivro(int livroId){
+
+  public void alterarLivro(int livroId) {
+
+  }
+
+  public void removerLivro(int livroId) {
     db.livros.remove(this);
   }
 }
