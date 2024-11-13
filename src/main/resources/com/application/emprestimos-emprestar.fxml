@@ -113,8 +113,8 @@
                   </VBox>
                   <VBox prefHeight="68.0" prefWidth="568.0">
                      <children>
-                        <Label text="Nome da Pessoa" textFill="WHITE" />
-                        <TextField fx:id="nome" promptText="Julio" style="-fx-background-radius: 0; -fx-background-color: #18181b88; -fx-text-fill: #fff; -fx-prompt-text-fill: #fff3;">
+                        <Label text="ID da Pessoa" textFill="WHITE" />
+                        <TextField fx:id="pessoaId" promptText="12345" style="-fx-background-radius: 0; -fx-background-color: #18181b88; -fx-text-fill: #fff; -fx-prompt-text-fill: #fff3;">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -127,7 +127,7 @@
                   <VBox prefHeight="71.0" prefWidth="568.0">
                      <children>
                         <Label text="Nome do Livro" textFill="WHITE" />
-                        <TextField fx:id="nome1" promptText="50 Tons de Cinza" style="-fx-background-radius: 0; -fx-background-color: #18181b88; -fx-text-fill: #fff; -fx-prompt-text-fill: #fff3;">
+                        <TextField fx:id="livroId" promptText="50 Tons de Cinza" style="-fx-background-radius: 0; -fx-background-color: #18181b88; -fx-text-fill: #fff; -fx-prompt-text-fill: #fff3;">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -139,23 +139,10 @@
                   </VBox>
                   <VBox prefHeight="68.0" prefWidth="568.0">
                      <children>
-                        <Label text="Autor" textFill="WHITE" />
-                        <TextField fx:id="nome2" promptText="Jhon Green" style="-fx-background-radius: 0; -fx-background-color: #18181b88; -fx-text-fill: #fff; -fx-prompt-text-fill: #fff3;">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                           <padding>
-                              <Insets bottom="8.0" left="16.0" right="8.0" top="8.0" />
-                           </padding>
-                        </TextField>
-                     </children>
-                  </VBox>
-                  <HBox spacing="16.0">
-                     <children>
-                        <VBox prefHeight="94.0" prefWidth="568.0" spacing="8.0" HBox.hgrow="ALWAYS">
+                        <VBox prefHeight="94.0" prefWidth="568.0" spacing="8.0">
                            <children>
                               <Label text="Data do Emprestimo" textFill="WHITE" />
-                              <DatePicker fx:id="ano" maxWidth="300.0" promptText="Selecione Uma Data" style="-fx-background-radius: 0; -fx-background-color: #18181b88; -fx-prompt-text-fill: #fff3; -fx-text-fill: #fff; -fx-border-color: transparent;" translateX="-7.0" VBox.vgrow="ALWAYS">
+                              <DatePicker fx:id="dataEmprestimo" maxWidth="300.0" promptText="Selecione Uma Data" style="-fx-background-radius: 0; -fx-background-color: #18181b88; -fx-prompt-text-fill: #fff3; -fx-text-fill: #fff; -fx-border-color: transparent;" translateX="-7.0" VBox.vgrow="ALWAYS">
                                  <padding>
                                     <Insets bottom="4.0" left="8.0" right="8.0" top="4.0" />
                                  </padding>
@@ -163,7 +150,8 @@
                            </children>
                         </VBox>
                      </children>
-                  </HBox>
+                  </VBox>
+                  <HBox spacing="16.0" />
                   <HBox prefHeight="85.0" prefWidth="568.0">
                      <children>
                         <HBox prefHeight="85.0" prefWidth="114.0">
@@ -183,7 +171,7 @@
                         </HBox>
                         <HBox prefHeight="85.0" prefWidth="108.0">
                            <children>
-                              <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" style="-fx-background-radius: 0; -fx-background-color: #18181b88;" text="SALVAR" textFill="WHITE">
+                              <Button fx:id="salvarEmprestimoBotao" alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" onAction="#emprestimoEmprestar" style="-fx-background-radius: 0; -fx-background-color: #18181b88;" text="SALVAR" textFill="WHITE">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
