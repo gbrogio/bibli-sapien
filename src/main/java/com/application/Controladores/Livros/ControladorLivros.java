@@ -1,8 +1,10 @@
 package com.application.Controladores.Livros;
 
 import java.util.Date;
+import java.util.ArrayList;
 import com.application.Database.Database;
 import com.application.ControladorTela;
+import com.application.Modelos.LivroAbstrato;
 
 public class ControladorLivros extends ControladorTela {
     public static Database db = Database.pegarInstancia();
@@ -24,4 +26,8 @@ public class ControladorLivros extends ControladorTela {
   public static void removerLivro(int livroId) {
     LivroDAO.removerLivro(livroId);
     }
+  
+  public ArrayList<LivroAbstrato> listarlivros(){
+      return LivroDAO.listarlivros();
+  }
 }

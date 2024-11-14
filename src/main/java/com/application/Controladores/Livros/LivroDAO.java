@@ -1,7 +1,7 @@
 package com.application.Controladores.Livros;
 
 import java.util.Date;
-
+import java.util.ArrayList;
 import com.application.Database.Database;
 import com.application.Modelos.LivroAbstrato;
 
@@ -44,4 +44,8 @@ public class LivroDAO extends LivroAbstrato {
             }
         }
     }
+  
+  static ArrayList<LivroAbstrato> listarlivros(){
+    return db.livros;
+  }
 }
