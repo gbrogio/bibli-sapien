@@ -1,20 +1,14 @@
 package com.application.Telas;
 
-import com.application.ControladorTela;
-import com.application.Database.Database;
+import com.application.Controladores.Cliente.ControladorCliente;
 import java.io.IOException;
 
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import java.util.Timer;
-import java.util.TimerTask;
 
-public class Clientes extends ControladorTela {
-    Database db = Database.pegarInstancia();
-
+public class Clientes extends ControladorCliente {
     @FXML
     private TextField nome;
     @FXML
@@ -27,6 +21,8 @@ public class Clientes extends ControladorTela {
     private DatePicker dataNascimento;
     @FXML
     private Button salvarClienteBotao;
+
+    static int alterarClienteId;
 
     @FXML
     public void irParaClientes() throws IOException {
@@ -56,22 +52,33 @@ public class Clientes extends ControladorTela {
 
     @FXML
     public void criarCliente() throws IOException {
-        Timer timer = new Timer();
         salvarClienteBotao.setText("SALVANDO...");
         salvarClienteBotao.setDisable(true);
         desabilitarCampos(true);
 
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                Platform.runLater(() -> {
-                    salvarClienteBotao.setText("SALVAR");
-                    salvarClienteBotao.setDisable(false);
-                    desabilitarCampos(false);
-                    limparCampos();
-                });
-                timer.cancel();
-            }
-        }, 2000);
+        this.adicionarCliente(nome.getText(), email.getText(), dataNascimento.getValue(), endereco.getText(),
+                telefone.getText());
+
+        salvarClienteBotao.setText("SALVAR");
+        salvarClienteBotao.setDisable(false);
+        desabilitarCampos(false);
+        limparCampos();
+    }
+
+    public void alterarCliente() throws IOException {
+        if (alterarClienteId <= 0)
+            return;
+
+        salvarClienteBotao.setText("SALVANDO...");
+        salvarClienteBotao.setDisable(true);
+        desabilitarCampos(true);
+
+        this.alterarCliente(alterarClienteId, nome.getText(), email.getText(), dataNascimento.getValue(),
+                endereco.getText(), telefone.getText());
+
+        salvarClienteBotao.setText("SALVAR");
+        salvarClienteBotao.setDisable(false);
+        desabilitarCampos(false);
+        limparCampos();
     }
 }
