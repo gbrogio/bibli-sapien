@@ -16,7 +16,7 @@
 <BorderPane maxHeight="600" maxWidth="-Infinity" minHeight="600" minWidth="-Infinity"
    prefHeight="600.0" prefWidth="768.0" style="-fx-background-color: #09090b;"
    xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1"
-   fx:controller="com.application.Telas.Livros">
+   fx:controller="com.application.Telas.Livro">
    <top>
       <FlowPane alignment="CENTER_LEFT" orientation="VERTICAL" prefHeight="32.0" prefWidth="200.0"
          style="-fx-background-color: #18181b;" BorderPane.alignment="CENTER">
@@ -79,7 +79,7 @@
                </cursor>
             </Button>
             <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE"
-               mnemonicParsing="false" onAction="#irParaCriarLivro"
+               mnemonicParsing="false" onAction="#irParaCriarLivros"
                style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;"
                text="CRIAR" textFill="WHITE">
                <padding>

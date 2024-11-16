@@ -1,15 +1,15 @@
 package com.application.Controladores.Cliente;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-
 import com.application.Database.Database;
 import com.application.Modelos.ClienteAbstrato;
+import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class ClienteDAO extends ClienteAbstrato {
   public static Database db = Database.pegarInstancia();
 
-  public ClienteDAO(String nome, String email, LocalDate dataNascimento, String endereco, String telefone) {
+  public ClienteDAO(String nome, String email, LocalDate dataNascimento,
+                    String endereco, String telefone) {
     this.nome = nome;
     this.email = email;
     this.dataNascimento = dataNascimento;
@@ -50,7 +50,15 @@ public class ClienteDAO extends ClienteAbstrato {
     }
   }
 
-  static ArrayList<ClienteAbstrato> pegarTodosClientes() {
-    return db.clientes;
+  static ArrayList<ClienteAbstrato> pegarTodosClientes() { return db.clientes; }
+
+  static ArrayList<ClienteAbstrato> pegarTodosClientes(String nome) {
+    ArrayList<ClienteAbstrato> clientes = new ArrayList<ClienteAbstrato>();
+    for (int i = 0; i < db.clientes.size(); i++) {
+      if (db.clientes.get(i).nome.toLowerCase().contains(nome.toLowerCase())) {
+        clientes.add(db.clientes.get(i));
+      }
+    }
+    return clientes;
   }
 }

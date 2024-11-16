@@ -9,5 +9,4 @@ public abstract class ClienteAbstrato {
   public LocalDate dataNascimento;
   public String endereco;
   public String telefone;
-  
 }

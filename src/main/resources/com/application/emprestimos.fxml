@@ -19,13 +19,18 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="600" maxWidth="-Infinity" minHeight="600" minWidth="-Infinity" prefHeight="600.0" prefWidth="768.0" style="-fx-background-color: #09090b;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.application.Telas.Emprestimos">
+<BorderPane maxHeight="600" maxWidth="-Infinity" minHeight="600" minWidth="-Infinity"
+   prefHeight="600.0" prefWidth="768.0" style="-fx-background-color: #09090b;"
+   xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+   fx:controller="com.application.Telas.Emprestimos">
    <top>
-      <FlowPane alignment="CENTER_LEFT" orientation="VERTICAL" prefHeight="32.0" prefWidth="200.0" style="-fx-background-color: #18181b;" BorderPane.alignment="CENTER">
+      <FlowPane alignment="CENTER_LEFT" orientation="VERTICAL" prefHeight="32.0" prefWidth="200.0"
+         style="-fx-background-color: #18181b;" BorderPane.alignment="CENTER">
          <children>
             <FlowPane alignment="CENTER_LEFT" prefWidth="384.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#voltar" style="-fx-background-color: #0000;" text="&lt;- voltar" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#voltar"
+                     style="-fx-background-color: #0000;" text="&lt;- voltar" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="11.0" />
                      </font>
@@ -45,7 +50,10 @@
                         <Font name="SansSerif Bold" size="10.0" />
                      </font>
                   </Text>
-                  <Button maxWidth="36.0" minWidth="34.0" mnemonicParsing="false" onAction="#close" prefHeight="30.0" prefWidth="34.0" style="-fx-background-radius: 0; -fx-background-color: #ef4444;" text="X" textFill="WHITE">
+                  <Button maxWidth="36.0" minWidth="34.0" mnemonicParsing="false" onAction="#close"
+                     prefHeight="30.0" prefWidth="34.0"
+                     style="-fx-background-radius: 0; -fx-background-color: #ef4444;" text="X"
+                     textFill="WHITE">
                      <FlowPane.margin>
                         <Insets left="16.0" />
                      </FlowPane.margin>
@@ -59,9 +67,13 @@
       </FlowPane>
    </top>
    <left>
-      <FlowPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0001;" BorderPane.alignment="CENTER">
+      <FlowPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0001;"
+         BorderPane.alignment="CENTER">
          <children>
-            <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" onAction="#irParaEmprestimos" style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;" text="PESQUISAR" textFill="WHITE">
+            <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE"
+               mnemonicParsing="false" onAction="#irParaEmprestimos"
+               style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;"
+               text="PESQUISAR" textFill="WHITE">
                <padding>
                   <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
                </padding>
@@ -72,7 +84,10 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" onAction="#irParaEmprestarEmprestimos" style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;" text="EMPRESTAR" textFill="WHITE">
+            <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE"
+               mnemonicParsing="false" onAction="#irParaEmprestarEmprestimos"
+               style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;"
+               text="EMPRESTAR" textFill="WHITE">
                <padding>
                   <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
                </padding>
@@ -83,7 +98,10 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" onAction="#irParaDevolverEmprestimos" style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;" text="DEVOLVER" textFill="WHITE">
+            <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE"
+               mnemonicParsing="false" onAction="#irParaDevolverEmprestimos"
+               style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;"
+               text="DEVOLVER" textFill="WHITE">
                <padding>
                   <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
                </padding>
@@ -107,14 +125,17 @@
                <children>
                   <VBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
                      <children>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="PESQUISAR" textOrigin="CENTER">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="PESQUISAR"
+                           textOrigin="CENTER">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Text>
                      </children>
                   </VBox>
-                  <TextField maxWidth="250.0" promptText="Código" style="-fx-background-radius: 0; -fx-background-color: #18181b88; -fx-text-fill: #fff; -fx-prompt-text-fill: #fff3;" HBox.hgrow="ALWAYS">
+                  <TextField maxWidth="250.0" promptText="Código"
+                     style="-fx-background-radius: 0; -fx-background-color: #18181b88; -fx-text-fill: #fff; -fx-prompt-text-fill: #fff3;"
+                     HBox.hgrow="ALWAYS">
                      <padding>
                         <Insets bottom="8.0" left="16.0" right="8.0" top="8.0" />
                      </padding>
@@ -124,7 +145,9 @@
                   </TextField>
                </children>
             </HBox>
-            <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" style="-fx-background: #0000; -fx-background-color: #0000;" vbarPolicy="ALWAYS" VBox.vgrow="ALWAYS">
+            <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="200.0"
+               prefWidth="200.0" style="-fx-background: #0000; -fx-background-color: #0000;"
+               vbarPolicy="ALWAYS" VBox.vgrow="ALWAYS">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
                </content>

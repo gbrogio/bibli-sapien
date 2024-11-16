@@ -1,84 +1,57 @@
 package com.application.Telas;
 
 import com.application.Controladores.Cliente.ControladorCliente;
+import com.application.Modelos.ClienteAbstrato;
 import java.io.IOException;
-
+import java.util.ArrayList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.VBox;
 
 public class Clientes extends ControladorCliente {
-    @FXML
-    private TextField nome;
-    @FXML
-    private TextField email;
-    @FXML
-    private TextField telefone;
-    @FXML
-    private TextField endereco;
-    @FXML
-    private DatePicker dataNascimento;
-    @FXML
-    private Button salvarClienteBotao;
+  @FXML private FlowPane clientsView;
 
-    static int alterarClienteId;
+  @FXML
+  public void irParaClientes() throws IOException {
+    this.irPara("clientes");
+  }
 
-    @FXML
-    public void irParaClientes() throws IOException {
-        this.irPara("clientes");
+  @FXML
+  public void irParaCriarCliente() throws IOException {
+    this.irPara("criar-cliente");
+  }
+
+  @FXML
+  private void pesquisar(javafx.scene.input.KeyEvent event) throws IOException {
+    String nome = ((javafx.scene.control.TextField)event.getSource()).getText();
+    ArrayList<ClienteAbstrato> clientes = pegarTodosClientes(nome);
+    clientsView.getChildren().clear();
+    for (ClienteAbstrato cliente : clientes) {
+      carregarCliente(cliente);
     }
+  }
 
-    @FXML
-    public void irParaCriarCliente() throws IOException {
-        this.irPara("criar-cliente");
+  private void carregarCliente(ClienteAbstrato cliente) throws IOException {
+    FXMLLoader loader = new FXMLLoader(
+        getClass().getResource("/com/application/cliente-item.fxml"));
+    VBox clienteBox = loader.load();
+    ClienteItem controller = loader.getController();
+
+    controller.setCliente(cliente);
+    clientsView.getChildren().add(clienteBox);
+  }
+
+  private void carregarClientes() throws IOException {
+    ArrayList<ClienteAbstrato> clientes = pegarTodosClientes();
+    clientsView.getChildren().clear();
+    for (ClienteAbstrato cliente : clientes) {
+      carregarCliente(cliente);
     }
+  }
 
-    private void limparCampos() {
-        nome.clear();
-        email.clear();
-        telefone.clear();
-        endereco.clear();
-        dataNascimento.getEditor().clear();
-    }
-
-    private void desabilitarCampos(boolean desabilitar) {
-        nome.setDisable(desabilitar);
-        email.setDisable(desabilitar);
-        telefone.setDisable(desabilitar);
-        endereco.setDisable(desabilitar);
-        dataNascimento.setDisable(desabilitar);
-    }
-
-    @FXML
-    public void criarCliente() throws IOException {
-        salvarClienteBotao.setText("SALVANDO...");
-        salvarClienteBotao.setDisable(true);
-        desabilitarCampos(true);
-
-        this.adicionarCliente(nome.getText(), email.getText(), dataNascimento.getValue(), endereco.getText(),
-                telefone.getText());
-
-        salvarClienteBotao.setText("SALVAR");
-        salvarClienteBotao.setDisable(false);
-        desabilitarCampos(false);
-        limparCampos();
-    }
-
-    public void alterarCliente() throws IOException {
-        if (alterarClienteId <= 0)
-            return;
-
-        salvarClienteBotao.setText("SALVANDO...");
-        salvarClienteBotao.setDisable(true);
-        desabilitarCampos(true);
-
-        this.alterarCliente(alterarClienteId, nome.getText(), email.getText(), dataNascimento.getValue(),
-                endereco.getText(), telefone.getText());
-
-        salvarClienteBotao.setText("SALVAR");
-        salvarClienteBotao.setDisable(false);
-        desabilitarCampos(false);
-        limparCampos();
-    }
+  @FXML
+  public void initialize() throws IOException {
+    carregarClientes();
+  }
 }

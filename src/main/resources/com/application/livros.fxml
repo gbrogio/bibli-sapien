@@ -79,7 +79,7 @@
                </cursor>
             </Button>
             <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE"
-               mnemonicParsing="false" onAction="#irParaCriarLivro"
+               mnemonicParsing="false" onAction="#irParaCriarLivros"
                style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;"
                text="CRIAR" textFill="WHITE">
                <padding>
@@ -113,7 +113,7 @@
                         </Text>
                      </children>
                   </VBox>
-                  <TextField maxWidth="250.0" promptText="Código"
+                  <TextField maxWidth="250.0" onKeyReleased="#pesquisar" promptText="Nome"
                      style="-fx-background-radius: 0; -fx-background-color: #18181b88; -fx-text-fill: #fff; -fx-prompt-text-fill: #fff3;"
                      HBox.hgrow="ALWAYS">
                      <padding>
@@ -128,12 +128,13 @@
             <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="200.0"
                prefWidth="200.0" style="-fx-background: #0000; -fx-background-color: #0000;"
                vbarPolicy="ALWAYS" VBox.vgrow="ALWAYS">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-               </content>
                <VBox.margin>
                   <Insets top="16.0" />
                </VBox.margin>
+               <content>
+                  <FlowPane fx:id="livrosView" hgap="16.0" prefHeight="200.0" prefWidth="200.0"
+                     vgap="16.0" />
+               </content>
             </ScrollPane>
          </children>
       </VBox>

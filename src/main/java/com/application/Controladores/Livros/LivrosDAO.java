@@ -1,14 +1,15 @@
 package com.application.Controladores.Livros;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import com.application.Database.Database;
 import com.application.Modelos.LivroAbstrato;
+import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class LivrosDAO extends LivroAbstrato {
   public static Database db = Database.pegarInstancia();
 
-  public LivrosDAO(String titulo, String autor, String genero, int quantidade, LocalDate ano) {
+  public LivrosDAO(String titulo, String autor, String genero, int quantidade,
+                   LocalDate ano) {
     this.titulo = titulo;
     this.autor = autor;
     this.genero = genero;
@@ -43,13 +44,21 @@ public class LivrosDAO extends LivroAbstrato {
   public void alterarLivro(int clienteId) {
     for (int i = 0; i < db.livros.size(); i++) {
       if (db.livros.get(i).id == clienteId) {
-        this.id = db.clientes.get(i).id;
+        this.id = db.livros.get(i).id;
         db.livros.set(i, this);
       }
     }
   }
 
-  static ArrayList<LivroAbstrato> pegarTodosLivros() {
-    return db.livros;
+  static ArrayList<LivroAbstrato> pegarTodosLivros() { return db.livros; }
+
+  static ArrayList<LivroAbstrato> pegarTodosLivros(String nome) {
+    ArrayList<LivroAbstrato> livros = new ArrayList<LivroAbstrato>();
+    for (int i = 0; i < db.livros.size(); i++) {
+      if (db.livros.get(i).titulo.toLowerCase().contains(nome.toLowerCase())) {
+        livros.add(db.livros.get(i));
+      }
+    }
+    return livros;
   }
 }

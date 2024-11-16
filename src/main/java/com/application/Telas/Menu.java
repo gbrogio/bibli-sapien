@@ -1,9 +1,7 @@
 package com.application.Telas;
 
-import java.io.IOException;
-
 import com.application.ControladorTela;
-
+import java.io.IOException;
 import javafx.fxml.FXML;
 
 public class Menu extends ControladorTela {

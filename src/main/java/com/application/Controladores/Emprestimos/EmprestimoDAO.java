@@ -1,10 +1,9 @@
 package com.application.Controladores.Emprestimos;
 
-import java.util.ArrayList;
-import java.util.Date;
-
 import com.application.Database.Database;
 import com.application.Modelos.EmprestimoAbstrato;
+import java.util.ArrayList;
+import java.util.Date;
 
 public class EmprestimoDAO extends EmprestimoAbstrato {
   public static Database db = Database.pegarInstancia();
@@ -49,8 +48,10 @@ public class EmprestimoDAO extends EmprestimoAbstrato {
     return db.emprestimos;
   }
 
-  static ArrayList<EmprestimoAbstrato> pegarEprestimosPorCliente(int clienteId) {
-    ArrayList<EmprestimoAbstrato> emprestimos = new ArrayList<EmprestimoAbstrato>();
+  static ArrayList<EmprestimoAbstrato>
+  pegarEprestimosPorCliente(int clienteId) {
+    ArrayList<EmprestimoAbstrato> emprestimos =
+        new ArrayList<EmprestimoAbstrato>();
     for (int i = 0; i < db.emprestimos.size(); i++) {
       if (db.emprestimos.get(i).clienteId == clienteId) {
         emprestimos.add(db.emprestimos.get(i));
