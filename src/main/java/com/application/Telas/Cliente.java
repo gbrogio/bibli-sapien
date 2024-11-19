@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 
 public class Cliente extends ControladorCliente {
   @FXML private TextField nome;
@@ -15,6 +16,7 @@ public class Cliente extends ControladorCliente {
   @FXML private TextField endereco;
   @FXML private DatePicker dataNascimento;
   @FXML private Button salvarClienteBotao;
+  @FXML private Text mensagemErro;
 
   static int alterarClienteId;
 
@@ -46,6 +48,13 @@ public class Cliente extends ControladorCliente {
 
   @FXML
   public void criarCliente() throws IOException {
+     
+      mensagemErro.setText("");
+      
+      if(validarEntrada()){
+        return;
+    }
+      
     salvarClienteBotao.setText("SALVANDO...");
     salvarClienteBotao.setDisable(true);
     desabilitarCampos(true);
@@ -62,6 +71,28 @@ public class Cliente extends ControladorCliente {
     this.irParaClientes();
   }
 
+    public boolean validarEntrada(){
+    String emailValidar = email.getText();
+    if (emailValidar == null || !emailValidar.contains("@") || !emailValidar.endsWith(".com")) {
+        mensagemErro.setText("Email Incorreto");
+        return true;
+    }
+    
+    String telefoneText = telefone.getText();
+    if (telefoneText == null || telefoneText.length() != 11) {
+        mensagemErro.setText("Telefone Incorreto");
+        return true;
+    }
+    
+    if (dataNascimento.getValue() == null || 
+        dataNascimento.getValue().isAfter(java.time.LocalDate.now().minusYears(5))) {
+        mensagemErro.setText("Data de Nascimento Incorreto");
+        return true;
+    }
+    
+    return false;
+  }
+  
   @FXML
   public void alterarCliente() throws IOException {
     if (alterarClienteId <= 0)

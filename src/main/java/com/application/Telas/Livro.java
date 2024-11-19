@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 
 public class Livro extends ControladorLivros {
   @FXML private TextField titulo;
@@ -15,6 +16,7 @@ public class Livro extends ControladorLivros {
   @FXML private TextField quantidade;
   @FXML private TextField genero;
   @FXML private Button salvarLivroBotao;
+  @FXML private Text mensagemErro;
 
   static int alterarLivroId;
 
@@ -44,11 +46,18 @@ public class Livro extends ControladorLivros {
     genero.setDisable(desabilitar);
   }
 
+}
   @FXML
   public void criarLivro() throws IOException {
     if (alterarLivroId > 0)
       return;
 
+      mensagemErro.setText("");
+
+    if(validarEntrada()){
+        return;
+    }
+  
     salvarLivroBotao.setText("SALVANDO...");
     salvarLivroBotao.setDisable(true);
     desabilitarCampos(true);
@@ -62,6 +71,21 @@ public class Livro extends ControladorLivros {
     limparCampos();
     this.irParaLivros();
   }
+
+    public boolean validarEntrada(){
+    if(ano.getValue() == null || ano.getValue().isAfter(java.time.LocalDate.now()){
+        mensagemErro.setText("Ano Invalido");
+        return true;
+    } 
+
+    int quantidadeInt = Integer.parseInt(quantidade.getText());
+    if (quantidadeInt <= 0){
+        mensagemErro.setText("Quantidade Invalido");
+        return true;
+    }
+
+    return false;
+ }
 
   @FXML
   public void alterarLivro() throws IOException {
