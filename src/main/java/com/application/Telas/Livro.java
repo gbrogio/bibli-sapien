@@ -45,8 +45,7 @@ public class Livro extends ControladorLivros {
     quantidade.setDisable(desabilitar);
     genero.setDisable(desabilitar);
   }
-
-}
+  
   @FXML
   public void criarLivro() throws IOException {
     if (alterarLivroId > 0)
@@ -73,7 +72,7 @@ public class Livro extends ControladorLivros {
   }
 
     public boolean validarEntrada(){
-    if(ano.getValue() == null || ano.getValue().isAfter(java.time.LocalDate.now()){
+    if(ano.getValue() == null || ano.getValue().isAfter(java.time.LocalDate.now())){
         mensagemErro.setText("Ano Invalido");
         return true;
     } 
