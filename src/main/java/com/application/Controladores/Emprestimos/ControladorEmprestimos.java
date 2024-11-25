@@ -10,8 +10,12 @@ public class ControladorEmprestimos extends ControladorTela {
     EmprestimoDAO emprestimo = new EmprestimoDAO(clienteId, livroId);
     emprestimo.emprestarLivro();
   }
+  public void emprestarLivro(int clienteId, int livroId, Date dataEmprestimo) {
+    EmprestimoDAO emprestimo = new EmprestimoDAO(clienteId, livroId, dataEmprestimo);
+    emprestimo.emprestarLivro();
+  }  
 
-  public void emprestarLivro(int clienteId, int livroId, Date dataDevolucao) {
+  public void emprestarLivroDevolucao(int clienteId, int livroId, Date dataDevolucao) {
     EmprestimoDAO emprestimo =
         new EmprestimoDAO(clienteId, livroId, dataDevolucao);
     emprestimo.emprestarLivro();
