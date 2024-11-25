@@ -20,6 +20,7 @@ public class Livros extends ControladorLivros {
   @FXML
   public void irParaCriarLivros() throws IOException {
     this.irPara("criar-livro");
+    Livro.alterarLivroId = 0;
   }
 
   @FXML

@@ -20,6 +20,7 @@ public class Clientes extends ControladorCliente {
   @FXML
   public void irParaCriarCliente() throws IOException {
     this.irPara("criar-cliente");
+    Cliente.alterarClienteId = 0;
   }
 
   @FXML

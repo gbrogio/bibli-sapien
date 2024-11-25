@@ -15,11 +15,15 @@ public class Emprestimos extends ControladorEmprestimos {
   Database db = Database.pegarInstancia();
 
   @FXML private TextField livroId;
-  @FXML private TextField pessoaId;
+  @FXML private TextField clienteId;
   @FXML private DatePicker dataEmprestimo;
-  @FXML private DatePicker dataDevolucao;
-  @FXML private Button salvarEmprestimoBotao;
-  @FXML private Button salvarEmprestimoBotaoDevolucao;
+  @FXML private TextField mensagemErro;
+  @FXML private Button salvarBotao;
+
+  @FXML
+  void criarEmprestimo () {
+
+  }
 
   @FXML
   public void irParaEmprestimos() throws IOException {

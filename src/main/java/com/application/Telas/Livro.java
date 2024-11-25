@@ -28,6 +28,7 @@ public class Livro extends ControladorLivros {
   @FXML
   public void irParaCriarLivros() throws IOException {
     this.irPara("criar-livro");
+    Livro.alterarLivroId = 0;
   }
 
   private void limparCampos() {
@@ -45,18 +46,18 @@ public class Livro extends ControladorLivros {
     quantidade.setDisable(desabilitar);
     genero.setDisable(desabilitar);
   }
-  
+
   @FXML
   public void criarLivro() throws IOException {
     if (alterarLivroId > 0)
       return;
 
-      mensagemErro.setText("");
+    mensagemErro.setText("");
 
-    if(validarEntrada()){
-        return;
+    if (validarEntrada()) {
+      return;
     }
-  
+
     salvarLivroBotao.setText("SALVANDO...");
     salvarLivroBotao.setDisable(true);
     desabilitarCampos(true);
@@ -71,20 +72,21 @@ public class Livro extends ControladorLivros {
     this.irParaLivros();
   }
 
-    public boolean validarEntrada(){
-    if(ano.getValue() == null || ano.getValue().isAfter(java.time.LocalDate.now())){
-        mensagemErro.setText("Ano Invalido");
-        return true;
-    } 
+  public boolean validarEntrada() {
+    if (ano.getValue() == null ||
+        ano.getValue().isAfter(java.time.LocalDate.now())) {
+      mensagemErro.setText("Ano Invalido");
+      return true;
+    }
 
     int quantidadeInt = Integer.parseInt(quantidade.getText());
-    if (quantidadeInt <= 0){
-        mensagemErro.setText("Quantidade Invalido");
-        return true;
+    if (quantidadeInt < 0) {
+      mensagemErro.setText("Quantidade Invalido");
+      return true;
     }
 
     return false;
- }
+  }
 
   @FXML
   public void alterarLivro() throws IOException {

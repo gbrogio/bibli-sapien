@@ -3,6 +3,7 @@ package com.application.Telas;
 import com.application.Controladores.Cliente.ControladorCliente;
 import com.application.Modelos.ClienteAbstrato;
 import java.io.IOException;
+import java.util.regex.Pattern;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -28,6 +29,7 @@ public class Cliente extends ControladorCliente {
   @FXML
   public void irParaCriarCliente() throws IOException {
     this.irPara("criar-cliente");
+    Cliente.alterarClienteId = 0;
   }
 
   private void limparCampos() {
@@ -48,13 +50,13 @@ public class Cliente extends ControladorCliente {
 
   @FXML
   public void criarCliente() throws IOException {
-     
-      mensagemErro.setText("");
-      
-      if(validarEntrada()){
-        return;
+
+    mensagemErro.setText("");
+
+    if (validarEntrada()) {
+      return;
     }
-      
+
     salvarClienteBotao.setText("SALVANDO...");
     salvarClienteBotao.setDisable(true);
     desabilitarCampos(true);
@@ -71,28 +73,35 @@ public class Cliente extends ControladorCliente {
     this.irParaClientes();
   }
 
-    public boolean validarEntrada(){
+  public boolean validarEntrada() {
     String emailValidar = email.getText();
-    if (emailValidar == null || !emailValidar.contains("@") || !emailValidar.endsWith(".com")) {
-        mensagemErro.setText("Email Incorreto");
-        return true;
+    String emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+  
+    if (
+      emailValidar == null ||
+      !Pattern.matches(emailRegex, emailValidar)
+    ) {
+      mensagemErro.setText("Email Incorreto");
+      return true;
     }
-    
+
     String telefoneText = telefone.getText();
-    if (telefoneText == null || telefoneText.length() != 11) {
-        mensagemErro.setText("Telefone Incorreto");
-        return true;
+    if (telefoneText == null || telefoneText.length() != 11 ||
+        !Pattern.matches("[0-9]+", telefoneText)) {
+      mensagemErro.setText("Telefone Incorreto");
+      return true;
     }
-    
-    if (dataNascimento.getValue() == null || 
-        dataNascimento.getValue().isAfter(java.time.LocalDate.now().minusYears(5))) {
-        mensagemErro.setText("Data de Nascimento Incorreto");
-        return true;
+
+    if (dataNascimento.getValue() == null ||
+        dataNascimento.getValue().isAfter(
+            java.time.LocalDate.now().minusYears(5))) {
+      mensagemErro.setText("Data de Nascimento Incorreto");
+      return true;
     }
-    
+
     return false;
   }
-  
+
   @FXML
   public void alterarCliente() throws IOException {
     if (alterarClienteId <= 0)
