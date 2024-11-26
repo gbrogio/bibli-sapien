@@ -2,9 +2,6 @@ package com.application.Telas;
 
 import com.application.Controladores.Emprestimos.ControladorEmprestimos;
 import java.io.IOException;
-import java.util.Timer;
-import java.util.TimerTask;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -45,22 +42,62 @@ public class Emprestimos extends ControladorEmprestimos {
 
   @FXML
   public void emprestimoEmprestar() throws IOException {
-    Timer timer = new Timer();
+    if(alterarEmprestimoId > 0){
+        return;
+    }
+    
+    mensagemErro.setText("");
+    
+    if(validarEntrada()){
+        return;
+    }
+    
     salvarEmprestimoBotao.setText("SALVANDO...");
     salvarEmprestimoBotao.setDisable(true);
     desabilitarCampos(true);
 
-    timer.schedule(new TimerTask() {
-      @Override
-      public void run() {
-        Platform.runLater(() -> {
-          salvarEmprestimoBotao.setText("SALVAR");
-          salvarEmprestimoBotao.setDisable(false);
-          desabilitarCampos(false);
-          limparCampos();
-        });
-        timer.cancel();
-      }
-    }, 2000);
+    this.emprestarLivro(Integer.parseInt(livroId.getText()), Integer.parseInt(clienteId.getText()), dataEmprestimo.getValue());
+    
+    salvarEmprestimoBotao.setText("SALVAR");
+    salvarEmprestimoBotao.setDisable(false);
+    desabilitarCampos(false);
+    limparCampos();
+    this.irParaEmprestarEmprestimos();
   }
+  
+  public boolean validarEntrada(){
+      
+    if (dataEmprestimo.getValue() == null || dataEmprestimo.getValue().isAfter(java.time.LocalDate.now())) {
+      mensagemErro.setText("Ano Invalido");
+      return true;
+    }
+
+    int livroNegativo = Integer.parseInt(livroId.getText());
+    if(livroNegativo < 0) {
+      mensagemErro.setText("Livro invalido");
+      return true;
+    }
+    
+    int clienteNegativo = Integer.parseInt(clienteId.getText());
+    if(clienteNegativo < 0){
+        mensagemErro.setText("Clinte com Id negativo não existe.");
+    }
+    if(clienteNegativo > 100){
+        mensagemErro.setText("Id Invalido");
+    }
+  
+      return false;
+  }
+  @FXML
+  public void initialize() {
+    if (alterarEmprestimoId > 0) {
+      salvarEmprestimoBotao.setOnAction(event -> {
+        try {
+          this.emprestimoEmprestar();
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
+      });
+    }
+  }  
 }

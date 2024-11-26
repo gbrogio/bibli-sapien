@@ -8,7 +8,7 @@ public abstract class EmprestimoAbstrato {
   public int id;
   public int livroId;
   public int clienteId;
-  public Date dataEmprestimo = new Date();
+  public LocalDate dataEmprestimo;
   public Date dataDevolucao =
       Date.from(LocalDate.now()
                     .plusMonths(1)

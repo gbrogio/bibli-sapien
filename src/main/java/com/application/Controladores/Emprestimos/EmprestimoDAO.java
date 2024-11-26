@@ -2,6 +2,7 @@ package com.application.Controladores.Emprestimos;
 
 import com.application.Database.Database;
 import com.application.Modelos.EmprestimoAbstrato;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -14,10 +15,10 @@ public class EmprestimoDAO extends EmprestimoAbstrato {
     this.id = db.idEmprestimo;
   }
 
-  public EmprestimoDAO(int clienteId, int livroId, Date dataDevolucao) {
+  public EmprestimoDAO(int clienteId, int livroId, LocalDate dataEmprestimo) {
     this.clienteId = clienteId;
     this.livroId = livroId;
-    this.dataDevolucao = dataDevolucao;
+    this.dataEmprestimo = dataEmprestimo;
     this.id = db.idEmprestimo;
   }
 

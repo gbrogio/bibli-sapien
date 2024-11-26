@@ -2,6 +2,7 @@ package com.application.Controladores.Emprestimos;
 
 import com.application.ControladorTela;
 import com.application.Modelos.EmprestimoAbstrato;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -10,7 +11,7 @@ public class ControladorEmprestimos extends ControladorTela {
     EmprestimoDAO emprestimo = new EmprestimoDAO(clienteId, livroId);
     emprestimo.emprestarLivro();
   }
-  public void emprestarLivro(int clienteId, int livroId, Date dataEmprestimo) {
+  public void emprestarLivro(int clienteId, int livroId, LocalDate dataEmprestimo) {
     EmprestimoDAO emprestimo = new EmprestimoDAO(clienteId, livroId, dataEmprestimo);
     emprestimo.emprestarLivro();
   }  
