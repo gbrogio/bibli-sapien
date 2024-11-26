@@ -35,7 +35,7 @@ public class Livro extends ControladorLivros {
     titulo.setText("");
     autor.setText("");
     ano.setValue(null);
-    quantidade.setText("");
+    quantidade.setText("1");
     genero.setText("");
   }
 
@@ -43,7 +43,7 @@ public class Livro extends ControladorLivros {
     titulo.setDisable(desabilitar);
     autor.setDisable(desabilitar);
     ano.setDisable(desabilitar);
-    quantidade.setDisable(desabilitar);
+    // quantidade.setDisable(desabilitar);
     genero.setDisable(desabilitar);
   }
 
@@ -63,7 +63,7 @@ public class Livro extends ControladorLivros {
     desabilitarCampos(true);
 
     this.adicionarLivro(titulo.getText(), autor.getText(), genero.getText(),
-                        Integer.parseInt(quantidade.getText()), ano.getValue());
+                        1, ano.getValue());
 
     salvarLivroBotao.setText("SALVAR");
     salvarLivroBotao.setDisable(false);
@@ -79,7 +79,7 @@ public class Livro extends ControladorLivros {
       return true;
     }
 
-    int quantidadeInt = Integer.parseInt(quantidade.getText());
+    int quantidadeInt = 1;
     if (quantidadeInt < 0) {
       mensagemErro.setText("Quantidade Invalido");
       return true;
@@ -98,7 +98,7 @@ public class Livro extends ControladorLivros {
     desabilitarCampos(true);
 
     this.alterarLivro(alterarLivroId, titulo.getText(), autor.getText(),
-                      genero.getText(), Integer.parseInt(quantidade.getText()),
+                      genero.getText(), 1,
                       ano.getValue());
 
     alterarLivroId = 0;
