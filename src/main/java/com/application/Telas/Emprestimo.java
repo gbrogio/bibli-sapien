@@ -75,6 +75,8 @@ public class Emprestimo extends ControladorEmprestimos {
     livroId.setText("");
     clienteId.setText("");
     dataEmprestimo.setValue(null);
+    clienteDetalhes.setText("");
+    livroDetalhes.setText("");
   }
 
   private void desabilitarCampos(boolean desabilitar) {
