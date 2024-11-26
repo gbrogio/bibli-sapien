@@ -4,7 +4,6 @@ import com.application.ControladorTela;
 import com.application.Modelos.EmprestimoAbstrato;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class ControladorEmprestimos extends ControladorTela {
   public void emprestarLivro(int clienteId, int livroId) {
@@ -16,14 +15,8 @@ public class ControladorEmprestimos extends ControladorTela {
     emprestimo.emprestarLivro();
   }  
 
-  public void emprestarLivroDevolucao(int clienteId, int livroId, Date dataDevolucao) {
-    EmprestimoDAO emprestimo =
-        new EmprestimoDAO(clienteId, livroId, dataDevolucao);
-    emprestimo.emprestarLivro();
-  }
-
-  public void devolverLivro(int emprestimoId) {
-    EmprestimoDAO.devolverLivro(emprestimoId);
+  public void devolverLivro(int livroId, int clienteId) {
+    EmprestimoDAO.devolverLivro(livroId, clienteId);
   }
 
   public EmprestimoAbstrato pegarEmprestimo(int emprestimoId) {

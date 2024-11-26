@@ -4,7 +4,6 @@ import com.application.Database.Database;
 import com.application.Modelos.EmprestimoAbstrato;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class EmprestimoDAO extends EmprestimoAbstrato {
   public static Database db = Database.pegarInstancia();
@@ -27,9 +26,10 @@ public class EmprestimoDAO extends EmprestimoAbstrato {
     db.idEmprestimo++;
   }
 
-  static void devolverLivro(int emprestimoId) {
+  static void devolverLivro(int livroId, int clienteId) {
     for (int i = 0; i < db.emprestimos.size(); i++) {
-      if (db.emprestimos.get(i).id == emprestimoId) {
+      if (db.emprestimos.get(i).livroId == livroId &&
+          db.emprestimos.get(i).clienteId == clienteId) {
         db.emprestimos.remove(i);
         break;
       }
