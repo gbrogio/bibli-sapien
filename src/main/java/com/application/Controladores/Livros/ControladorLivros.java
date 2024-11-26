@@ -12,8 +12,8 @@ public class ControladorLivros extends ControladorTela {
     cliente.adicionarLivro();
   }
 
-  public LivroAbstrato pegarLivro(int clienteId) {
-    return LivrosDAO.pegarLivro(clienteId);
+  public static LivroAbstrato pegarLivro(int livroId) {
+    return LivrosDAO.pegarLivro(livroId);
   }
 
   public ArrayList<LivroAbstrato> pegarTodosLivros() {
@@ -30,5 +30,5 @@ public class ControladorLivros extends ControladorTela {
     cliente.alterarLivro(id);
   }
 
-  public void removerLivro(int clienteId) { LivrosDAO.removerLivro(clienteId); }
+  public void removerLivro(int livroId) { LivrosDAO.removerLivro(livroId); }
 }

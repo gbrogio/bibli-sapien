@@ -111,12 +111,12 @@ public class Livro extends ControladorLivros {
   }
 
   private void preencherCampos(int livroId) {
-    LivroAbstrato livro = this.pegarLivro(livroId);
-    titulo.setText(livro.titulo);
-    autor.setText(livro.autor);
-    genero.setText(livro.genero);
-    quantidade.setText(String.valueOf(livro.quantidade));
-    ano.setValue(livro.ano);
+    LivroAbstrato livro = ControladorLivros.pegarLivro(livroId);
+    titulo.setText(livro.getTitulo());
+    autor.setText(livro.getAutor());
+    genero.setText(livro.getGenero());
+    quantidade.setText(String.valueOf(livro.getQuantidade()));
+    ano.setValue(livro.getAno());
   }
 
   @FXML

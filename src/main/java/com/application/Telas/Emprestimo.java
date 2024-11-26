@@ -8,13 +8,14 @@ import com.application.Modelos.LivroAbstrato;
 import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
-public class Devolver extends ControladorEmprestimos {
+public class Emprestimo extends ControladorEmprestimos {
   @FXML private TextField livroId;
   @FXML private TextField clienteId;
-  // @FXML private DatePicker dataEmprestimo;
+  @FXML private DatePicker dataEmprestimo;
   @FXML private Text mensagemErro;
   @FXML private Button salvarBotao;
   @FXML private Text livroDetalhes;
@@ -73,33 +74,36 @@ public class Devolver extends ControladorEmprestimos {
   private void limparCampos() {
     livroId.setText("");
     clienteId.setText("");
-    // dataEmprestimo.setValue(null);
+    dataEmprestimo.setValue(null);
   }
 
   private void desabilitarCampos(boolean desabilitar) {
     livroId.setDisable(desabilitar);
     clienteId.setDisable(desabilitar);
-    // dataEmprestimo.setDisable(desabilitar);
+    dataEmprestimo.setDisable(desabilitar);
   }
 
   @FXML
-  public void devolver() throws IOException {
-    salvarBotao.setText("SALVANDO...");
-    salvarBotao.setDisable(true);
-    desabilitarCampos(true);
+  public void criarEmprestimo() throws IOException {
+    mensagemErro.setText("");
 
-    if (livroId.getText().isEmpty() || clienteId.getText().isEmpty()) {
-      mensagemErro.setText("Preencha todos os campos!");
-      salvarBotao.setText("SALVAR");
-      salvarBotao.setDisable(false);
-      desabilitarCampos(false);
+    if (validarEntrada()) {
       return;
     }
 
-    int livroIdInt = Integer.parseInt(livroId.getText());
-    int clienteIdInt = Integer.parseInt(clienteId.getText());
+    salvarBotao.setText("SALVANDO...");
+    salvarBotao.setDisable(true);
+    desabilitarCampos(true);
+    Boolean sucesso;
 
-    Boolean sucesso = devolverLivro(livroIdInt, clienteIdInt);
+    if (dataEmprestimo.getValue() == null) {
+      sucesso = this.emprestarLivro(Integer.parseInt(livroId.getText()),
+                                    Integer.parseInt(clienteId.getText()));
+    } else {
+      sucesso = this.emprestarLivro(Integer.parseInt(livroId.getText()),
+                                    Integer.parseInt(clienteId.getText()),
+                                    dataEmprestimo.getValue());
+    }
 
     salvarBotao.setText("SALVAR");
     salvarBotao.setDisable(false);
@@ -108,8 +112,29 @@ public class Devolver extends ControladorEmprestimos {
 
     if (sucesso) {
       irParaEmprestimos();
-    } else {
-      mensagemErro.setText("Não foi possível realizar a devolução!");
+      return;
     }
+    mensagemErro.setText("Não foi possível realizar o emprestimo!");
+  }
+
+  public boolean validarEntrada() {
+    if (dataEmprestimo.getValue() != null &&
+        dataEmprestimo.getValue().isAfter(java.time.LocalDate.now())) {
+      mensagemErro.setText("Ano invalido!");
+      return true;
+    }
+
+    int livroNegativo = Integer.parseInt(livroId.getText());
+    if (livroNegativo <= 0) {
+      mensagemErro.setText("Codigo livro inválido!");
+      return true;
+    }
+
+    int clienteNegativo = Integer.parseInt(clienteId.getText());
+    if (clienteNegativo < 0) {
+      mensagemErro.setText("Codigo cliente inválido!");
+    }
+
+    return false;
   }
 }

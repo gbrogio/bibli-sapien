@@ -14,7 +14,7 @@ public class ControladorCliente extends ControladorTela {
     cliente.adicionarCliente();
   }
 
-  public ClienteAbstrato pegarCliente(int clienteId) {
+  public static ClienteAbstrato pegarCliente(int clienteId) {
     return ClienteDAO.pegarCliente(clienteId);
   }
 

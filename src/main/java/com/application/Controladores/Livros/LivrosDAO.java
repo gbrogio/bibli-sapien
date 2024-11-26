@@ -10,22 +10,22 @@ public class LivrosDAO extends LivroAbstrato {
 
   public LivrosDAO(String titulo, String autor, String genero, int quantidade,
                    LocalDate ano) {
-    this.titulo = titulo;
-    this.autor = autor;
-    this.genero = genero;
-    this.quantidade = quantidade;
-    this.ano = ano;
+    this.setTitulo(titulo);
+    this.setAutor(autor);
+    this.setGenero(genero);
+    this.setQuantidade(quantidade);
+    this.setAno(ano);
   }
 
   public void adicionarLivro() {
-    this.id = db.idLivros;
+    this.setId(db.idLivros);
     db.livros.add(this);
     db.idLivros++;
   }
 
   static void removerLivro(int idLivro) {
     for (int i = 0; i < db.livros.size(); i++) {
-      if (db.livros.get(i).id == idLivro) {
+      if (db.livros.get(i).getId() == idLivro) {
         db.livros.remove(i);
         break;
       }
@@ -34,7 +34,7 @@ public class LivrosDAO extends LivroAbstrato {
 
   static LivroAbstrato pegarLivro(int idLivro) {
     for (int i = 0; i < db.livros.size(); i++) {
-      if (db.livros.get(i).id == idLivro) {
+      if (db.livros.get(i).getId() == idLivro) {
         return db.livros.get(i);
       }
     }
@@ -43,8 +43,8 @@ public class LivrosDAO extends LivroAbstrato {
 
   public void alterarLivro(int clienteId) {
     for (int i = 0; i < db.livros.size(); i++) {
-      if (db.livros.get(i).id == clienteId) {
-        this.id = db.livros.get(i).id;
+      if (db.livros.get(i).getId() == clienteId) {
+        this.setId(db.livros.get(i).getId());
         db.livros.set(i, this);
       }
     }
@@ -55,7 +55,8 @@ public class LivrosDAO extends LivroAbstrato {
   static ArrayList<LivroAbstrato> pegarTodosLivros(String nome) {
     ArrayList<LivroAbstrato> livros = new ArrayList<LivroAbstrato>();
     for (int i = 0; i < db.livros.size(); i++) {
-      if (db.livros.get(i).titulo.toLowerCase().contains(nome.toLowerCase())) {
+      if (db.livros.get(i).getTitulo().toLowerCase().contains(
+              nome.toLowerCase())) {
         livros.add(db.livros.get(i));
       }
     }

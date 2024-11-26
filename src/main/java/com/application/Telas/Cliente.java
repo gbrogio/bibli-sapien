@@ -76,11 +76,8 @@ public class Cliente extends ControladorCliente {
   public boolean validarEntrada() {
     String emailValidar = email.getText();
     String emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
-  
-    if (
-      emailValidar == null ||
-      !Pattern.matches(emailRegex, emailValidar)
-    ) {
+
+    if (emailValidar == null || !Pattern.matches(emailRegex, emailValidar)) {
       mensagemErro.setText("Email Incorreto");
       return true;
     }
@@ -124,12 +121,12 @@ public class Cliente extends ControladorCliente {
   }
 
   private void preencherCampos(int clienteId) {
-    ClienteAbstrato cliente = this.pegarCliente(clienteId);
-    nome.setText(cliente.nome);
-    email.setText(cliente.email);
-    telefone.setText(cliente.telefone);
-    endereco.setText(cliente.endereco);
-    dataNascimento.setValue(cliente.dataNascimento);
+    ClienteAbstrato cliente = ControladorCliente.pegarCliente(clienteId);
+    nome.setText(cliente.getNome());
+    email.setText(cliente.getEmail());
+    telefone.setText(cliente.getTelefone());
+    endereco.setText(cliente.getEndereco());
+    dataNascimento.setValue(cliente.getDataNascimento());
   }
 
   @FXML

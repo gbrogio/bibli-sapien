@@ -55,7 +55,7 @@
    <left>
       <FlowPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0001;" BorderPane.alignment="CENTER">
          <children>
-            <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" onAction="#irParaClientes" style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;" text="PESQUISAR" textFill="WHITE">
+            <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" onAction="#irParaEmprestimos" style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;" text="PESQUISAR" textFill="WHITE">
                <padding>
                   <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
                </padding>
@@ -66,7 +66,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" onAction="#irParaCriarCliente" style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;" text="EMPRESTAR" textFill="WHITE">
+            <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" onAction="#irParaCriarEmprestimo" style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;" text="EMPRESTAR" textFill="WHITE">
                <padding>
                   <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
                </padding>
@@ -77,7 +77,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" onAction="#irParaCriarCliente" style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;" text="DEVOLVER" textFill="WHITE">
+            <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" onAction="#irParaDevolverEmprestimo" style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;" text="DEVOLVER" textFill="WHITE">
                <padding>
                   <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
                </padding>
@@ -101,7 +101,7 @@
                <children>
                   <VBox alignment="CENTER_LEFT" maxHeight="0.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="DEVOLVER LIVRO" textOrigin="CENTER">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="CRIAR EMPRESTIMO" textOrigin="CENTER">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -113,7 +113,7 @@
             <VBox spacing="8.0">
                <children>
                   <Label text="Codigo do livro*:" textFill="WHITE" />
-                  <TextField fx:id="livroId" promptText="0" style="-fx-background-radius: 0; -fx-background-color: #18181b88; -fx-text-fill: #fff; -fx-prompt-text-fill: #fff3;">
+                  <TextField fx:id="livroId" onKeyReleased="#pegarDetalhesLivro" promptText="0" style="-fx-background-radius: 0; -fx-background-color: #18181b88; -fx-text-fill: #fff; -fx-prompt-text-fill: #fff3;">
                      <padding>
                         <Insets bottom="8.0" left="16.0" right="8.0" top="8.0" />
                      </padding>
@@ -121,12 +121,13 @@
                         <Font size="14.0" />
                      </font>
                   </TextField>
+                  <Text fx:id="livroDetalhes" fill="#ffffff80" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="536.0" VBox.vgrow="ALWAYS" />
                </children>
             </VBox>
             <VBox spacing="8.0">
                <children>
                   <Label text="Codigo do cliente*:" textFill="WHITE" />
-                  <TextField fx:id="clienteId" promptText="0" style="-fx-background-radius: 0; -fx-background-color: #18181b88; -fx-text-fill: #fff; -fx-prompt-text-fill: #fff3;">
+                  <TextField fx:id="clienteId" onKeyReleased="#pegarDetalhesCliente" promptText="0" style="-fx-background-radius: 0; -fx-background-color: #18181b88; -fx-text-fill: #fff; -fx-prompt-text-fill: #fff3;">
                      <padding>
                         <Insets bottom="8.0" left="16.0" right="8.0" top="8.0" />
                      </padding>
@@ -134,6 +135,7 @@
                         <Font size="14.0" />
                      </font>
                   </TextField>
+                  <Text fx:id="clienteDetalhes" fill="#ffffff80" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="536.0" />
                </children>
                <VBox.margin>
                   <Insets top="16.0" />
@@ -141,7 +143,7 @@
             </VBox>
             <VBox spacing="8.0">
                <children>
-                  <Label text="Data da devolucao*:" textFill="WHITE" />
+                  <Label text="Data do emprestimo*:" textFill="WHITE" />
                   <DatePicker fx:id="dataEmprestimo" prefWidth="300.0" promptText="Selecione Uma Data" style="-fx-background-radius: 0; -fx-background-color: #18181b88; -fx-prompt-text-fill: #fff3; -fx-text-fill: #fff; -fx-border-color: transparent;" VBox.vgrow="ALWAYS">
                      <padding>
                         <Insets bottom="4.0" left="8.0" right="8.0" top="4.0" />
@@ -163,7 +165,7 @@
                         </HBox>
                         <FlowPane alignment="BOTTOM_RIGHT" hgap="16.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" onAction="#irParaClientes" style="-fx-background-radius: 0; -fx-background-color: #ef4444;" text="CANCELAR" textFill="WHITE">
+                              <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" onAction="#irParaEmprestimos" style="-fx-background-radius: 0; -fx-background-color: #ef4444;" text="CANCELAR" textFill="WHITE">
                                  <padding>
                                     <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
                                  </padding>

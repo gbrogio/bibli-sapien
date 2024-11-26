@@ -10,22 +10,22 @@ public class ClienteDAO extends ClienteAbstrato {
 
   public ClienteDAO(String nome, String email, LocalDate dataNascimento,
                     String endereco, String telefone) {
-    this.nome = nome;
-    this.email = email;
-    this.dataNascimento = dataNascimento;
-    this.endereco = endereco;
-    this.telefone = telefone;
+    this.setNome(nome);
+    this.setEmail(email);
+    this.setDataNascimento(dataNascimento);
+    this.setEndereco(endereco);
+    this.setTelefone(telefone);
   }
 
   public void adicionarCliente() {
-    this.id = db.idCliente;
+    this.setId(db.idCliente);
     db.clientes.add(this);
     db.idCliente++;
   }
 
   static void removerCliente(int idCliente) {
     for (int i = 0; i < db.clientes.size(); i++) {
-      if (db.clientes.get(i).id == idCliente) {
+      if (db.clientes.get(i).getId() == idCliente) {
         db.clientes.remove(i);
         break;
       }
@@ -34,7 +34,7 @@ public class ClienteDAO extends ClienteAbstrato {
 
   static ClienteAbstrato pegarCliente(int idCliente) {
     for (int i = 0; i < db.clientes.size(); i++) {
-      if (db.clientes.get(i).id == idCliente) {
+      if (db.clientes.get(i).getId() == idCliente) {
         return db.clientes.get(i);
       }
     }
@@ -43,8 +43,8 @@ public class ClienteDAO extends ClienteAbstrato {
 
   public void alterarCliente(int clienteId) {
     for (int i = 0; i < db.clientes.size(); i++) {
-      if (db.clientes.get(i).id == clienteId) {
-        this.id = db.clientes.get(i).id;
+      if (db.clientes.get(i).getId() == clienteId) {
+        this.setId(db.clientes.get(i).getId());
         db.clientes.set(i, this);
       }
     }
@@ -55,7 +55,8 @@ public class ClienteDAO extends ClienteAbstrato {
   static ArrayList<ClienteAbstrato> pegarTodosClientes(String nome) {
     ArrayList<ClienteAbstrato> clientes = new ArrayList<ClienteAbstrato>();
     for (int i = 0; i < db.clientes.size(); i++) {
-      if (db.clientes.get(i).nome.toLowerCase().contains(nome.toLowerCase())) {
+      if (db.clientes.get(i).getNome().toLowerCase().contains(
+              nome.toLowerCase())) {
         clientes.add(db.clientes.get(i));
       }
     }

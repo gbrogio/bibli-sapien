@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox prefHeight="0.0" prefWidth="536.0" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.application.Telas.EmprestimoItem">
+   <children>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="34.0" prefWidth="158.0" style="-fx-border-color: #18181b;" HBox.hgrow="ALWAYS">
+         <children>
+            <Label fx:id="dataEmprestimo" prefHeight="16.0" prefWidth="130.0" text="DATA" textFill="WHITE" />
+         </children>
+         <padding>
+            <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
+         </padding>
+      </VBox>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="34.0" prefWidth="185.0" style="-fx-border-color: #18181b;" HBox.hgrow="ALWAYS">
+         <children>
+            <Label fx:id="nomeCliente" prefHeight="16.0" prefWidth="276.0" text="CLIENTE" textFill="WHITE" VBox.vgrow="ALWAYS" />
+         </children>
+         <padding>
+            <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
+         </padding>
+      </VBox>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="34.0" prefWidth="177.0" style="-fx-border-color: #18181b;" HBox.hgrow="ALWAYS">
+         <children>
+            <Label fx:id="tituloLivro" prefHeight="16.0" prefWidth="200.0" text="LIVRO" textFill="WHITE" VBox.vgrow="ALWAYS" />
+         </children>
+         <padding>
+            <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
+         </padding>
+      </VBox>
+   </children>
+   <padding>
+      <Insets right="16.0" />
+   </padding>
+</HBox>

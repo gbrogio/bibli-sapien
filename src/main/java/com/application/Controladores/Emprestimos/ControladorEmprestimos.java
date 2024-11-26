@@ -1,34 +1,30 @@
 package com.application.Controladores.Emprestimos;
 
 import com.application.ControladorTela;
-import com.application.Modelos.EmprestimoAbstrato;
+import com.application.Modelos.VisualizarEmprestimo;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class ControladorEmprestimos extends ControladorTela {
-  public void emprestarLivro(int clienteId, int livroId) {
+  public boolean emprestarLivro(int clienteId, int livroId) {
     EmprestimoDAO emprestimo = new EmprestimoDAO(clienteId, livroId);
-    emprestimo.emprestarLivro();
+    return emprestimo.emprestarLivro();
   }
-  public void emprestarLivro(int clienteId, int livroId, LocalDate dataEmprestimo) {
-    EmprestimoDAO emprestimo = new EmprestimoDAO(clienteId, livroId, dataEmprestimo);
-    emprestimo.emprestarLivro();
-  }  
-
-  public void devolverLivro(int livroId, int clienteId) {
-    EmprestimoDAO.devolverLivro(livroId, clienteId);
+  public boolean emprestarLivro(int clienteId, int livroId,
+                                LocalDate dataEmprestimo) {
+    EmprestimoDAO emprestimo =
+        new EmprestimoDAO(clienteId, livroId, dataEmprestimo);
+    return emprestimo.emprestarLivro();
   }
 
-  public EmprestimoAbstrato pegarEmprestimo(int emprestimoId) {
-    return EmprestimoDAO.pegarEmprestimo(emprestimoId);
+  public Boolean devolverLivro(int livroId, int clienteId) {
+    return EmprestimoDAO.devolverLivro(livroId, clienteId);
   }
 
-  public ArrayList<EmprestimoAbstrato> pegarTodosEmprestimos() {
+  public ArrayList<VisualizarEmprestimo> pegarTodosEmprestimos(String nome) {
+    return EmprestimoDAO.pegarTodosEmprestimos(nome);
+  }
+  public ArrayList<VisualizarEmprestimo> pegarTodosEmprestimos() {
     return EmprestimoDAO.pegarTodosEmprestimos();
-  }
-
-  public ArrayList<EmprestimoAbstrato>
-  pegarEprestimosPorCliente(int clienteId) {
-    return EmprestimoDAO.pegarEprestimosPorCliente(clienteId);
   }
 }

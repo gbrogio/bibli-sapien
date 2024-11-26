@@ -13,13 +13,18 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="600" maxWidth="-Infinity" minHeight="600" minWidth="-Infinity" prefHeight="600.0" prefWidth="768.0" style="-fx-background-color: #09090b;" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.application.Telas.Cliente">
+<BorderPane maxHeight="600" maxWidth="-Infinity" minHeight="600" minWidth="-Infinity"
+   prefHeight="600.0" prefWidth="768.0" style="-fx-background-color: #09090b;"
+   xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1"
+   fx:controller="com.application.Telas.Cliente">
    <top>
-      <FlowPane alignment="CENTER_LEFT" orientation="VERTICAL" prefHeight="32.0" prefWidth="200.0" style="-fx-background-color: #18181b;" BorderPane.alignment="CENTER">
+      <FlowPane alignment="CENTER_LEFT" orientation="VERTICAL" prefHeight="32.0" prefWidth="200.0"
+         style="-fx-background-color: #18181b;" BorderPane.alignment="CENTER">
          <children>
             <FlowPane alignment="CENTER_LEFT" prefWidth="384.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#voltar" style="-fx-background-color: #0000;" text="&lt;- voltar" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#voltar"
+                     style="-fx-background-color: #0000;" text="&lt;- voltar" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="11.0" />
                      </font>
@@ -39,7 +44,10 @@
                         <Font name="SansSerif Bold" size="10.0" />
                      </font>
                   </Text>
-                  <Button maxWidth="36.0" minWidth="34.0" mnemonicParsing="false" onAction="#close" prefHeight="30.0" prefWidth="34.0" style="-fx-background-radius: 0; -fx-background-color: #ef4444;" text="X" textFill="WHITE">
+                  <Button maxWidth="36.0" minWidth="34.0" mnemonicParsing="false" onAction="#close"
+                     prefHeight="30.0" prefWidth="34.0"
+                     style="-fx-background-radius: 0; -fx-background-color: #ef4444;" text="X"
+                     textFill="WHITE">
                      <FlowPane.margin>
                         <Insets left="16.0" />
                      </FlowPane.margin>
@@ -53,9 +61,13 @@
       </FlowPane>
    </top>
    <left>
-      <FlowPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0001;" BorderPane.alignment="CENTER">
+      <FlowPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0001;"
+         BorderPane.alignment="CENTER">
          <children>
-            <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" onAction="#irParaClientes" style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;" text="PESQUISAR" textFill="WHITE">
+            <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE"
+               mnemonicParsing="false" onAction="#irParaClientes"
+               style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;"
+               text="PESQUISAR" textFill="WHITE">
                <padding>
                   <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
                </padding>
@@ -66,7 +78,10 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" onAction="#irParaCriarCliente" style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;" text="CRIAR" textFill="WHITE">
+            <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE"
+               mnemonicParsing="false" onAction="#irParaCriarCliente"
+               style="-fx-min-width: 200px; -fx-background-radius: 0; -fx-background-color: #18181b88;"
+               text="CRIAR" textFill="WHITE">
                <padding>
                   <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
                </padding>
@@ -90,7 +105,8 @@
                <children>
                   <VBox alignment="CENTER_LEFT" maxHeight="0.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="CRIAR CLIENTE" textOrigin="CENTER">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
+                           text="CRIAR CLIENTE" textOrigin="CENTER">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -102,7 +118,8 @@
             <VBox spacing="8.0">
                <children>
                   <Label text="Nome Completo*:" textFill="WHITE" />
-                  <TextField fx:id="nome" promptText="Fabricio" style="-fx-background-radius: 0; -fx-background-color: #18181b88; -fx-text-fill: #fff; -fx-prompt-text-fill: #fff3;">
+                  <TextField fx:id="nome" promptText="Fabricio"
+                     style="-fx-background-radius: 0; -fx-background-color: #18181b88; -fx-text-fill: #fff; -fx-prompt-text-fill: #fff3;">
                      <padding>
                         <Insets bottom="8.0" left="16.0" right="8.0" top="8.0" />
                      </padding>
@@ -115,7 +132,8 @@
             <VBox spacing="8.0">
                <children>
                   <Label text="E-mail*:" textFill="WHITE" />
-                  <TextField fx:id="email" promptText="Fabricio" style="-fx-background-radius: 0; -fx-background-color: #18181b88; -fx-text-fill: #fff; -fx-prompt-text-fill: #fff3;">
+                  <TextField fx:id="email" promptText="Fabricio"
+                     style="-fx-background-radius: 0; -fx-background-color: #18181b88; -fx-text-fill: #fff; -fx-prompt-text-fill: #fff3;">
                      <padding>
                         <Insets bottom="8.0" left="16.0" right="8.0" top="8.0" />
                      </padding>
@@ -133,7 +151,10 @@
                   <VBox spacing="8.0" HBox.hgrow="ALWAYS">
                      <children>
                         <Label text="Data de Nascimento*:" textFill="WHITE" />
-                        <DatePicker fx:id="dataNascimento" maxWidth="300.0" promptText="Selecione Uma Data" style="-fx-background-radius: 0; -fx-background-color: #18181b88; -fx-prompt-text-fill: #fff3; -fx-text-fill: #fff; -fx-border-color: transparent;" VBox.vgrow="ALWAYS">
+                        <DatePicker fx:id="dataNascimento" maxWidth="300.0"
+                           promptText="Selecione Uma Data"
+                           style="-fx-background-radius: 0; -fx-background-color: #18181b88; -fx-prompt-text-fill: #fff3; -fx-text-fill: #fff; -fx-border-color: transparent;"
+                           VBox.vgrow="ALWAYS">
                            <padding>
                               <Insets bottom="4.0" left="8.0" right="8.0" top="4.0" />
                            </padding>
@@ -143,7 +164,8 @@
                   <VBox spacing="8.0" HBox.hgrow="ALWAYS">
                      <children>
                         <Label text="Telefone*:" textFill="WHITE" />
-                        <TextField fx:id="telefone" promptText="(44) 91234-5678" style="-fx-background-radius: 0; -fx-background-color: #18181b88; -fx-text-fill: #fff; -fx-prompt-text-fill: #fff3;">
+                        <TextField fx:id="telefone" promptText="(44) 91234-5678"
+                           style="-fx-background-radius: 0; -fx-background-color: #18181b88; -fx-text-fill: #fff; -fx-prompt-text-fill: #fff3;">
                            <padding>
                               <Insets bottom="8.0" left="16.0" right="8.0" top="8.0" />
                            </padding>
@@ -161,7 +183,8 @@
             <VBox spacing="8.0">
                <children>
                   <Label text="Endereço*:" textFill="WHITE" />
-                  <TextField fx:id="endereco" promptText="R. Java, nº 1991 - Centro" style="-fx-background-radius: 0; -fx-background-color: #18181b88; -fx-text-fill: #fff; -fx-prompt-text-fill: #fff3;">
+                  <TextField fx:id="endereco" promptText="R. Java, nº 1991 - Centro"
+                     style="-fx-background-radius: 0; -fx-background-color: #18181b88; -fx-text-fill: #fff; -fx-prompt-text-fill: #fff3;">
                      <padding>
                         <Insets bottom="8.0" left="16.0" right="8.0" top="8.0" />
                      </padding>
@@ -180,12 +203,18 @@
                      <children>
                         <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
                            <children>
-                              <Text fx:id="mensagemErro" fill="#ef4444" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="536.0" HBox.hgrow="ALWAYS" />
+                              <Text fx:id="mensagemErro" fill="#ef4444" strokeType="OUTSIDE"
+                                 strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="536.0"
+                                 HBox.hgrow="ALWAYS" />
                            </children>
                         </HBox>
                         <FlowPane alignment="BOTTOM_RIGHT" hgap="16.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" onAction="#irParaClientes" style="-fx-background-radius: 0; -fx-background-color: #ef4444;" text="CANCELAR" textFill="WHITE">
+                              <Button alignment="TOP_LEFT" cache="true" contentDisplay="CENTER"
+                                 depthTest="ENABLE" mnemonicParsing="false"
+                                 onAction="#irParaClientes"
+                                 style="-fx-background-radius: 0; -fx-background-color: #ef4444;"
+                                 text="CANCELAR" textFill="WHITE">
                                  <padding>
                                     <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
                                  </padding>
@@ -196,7 +225,11 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="salvarClienteBotao" alignment="TOP_LEFT" cache="true" contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false" onAction="#criarCliente" style="-fx-background-radius: 0; -fx-background-color: #18181b88;" text="SALVAR" textFill="WHITE">
+                              <Button fx:id="salvarClienteBotao" alignment="TOP_LEFT" cache="true"
+                                 contentDisplay="CENTER" depthTest="ENABLE" mnemonicParsing="false"
+                                 onAction="#criarCliente"
+                                 style="-fx-background-radius: 0; -fx-background-color: #18181b88;"
+                                 text="SALVAR" textFill="WHITE">
                                  <padding>
                                     <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
                                  </padding>
