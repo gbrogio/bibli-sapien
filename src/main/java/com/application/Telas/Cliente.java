@@ -75,7 +75,7 @@ public class Cliente extends ControladorCliente {
 
   public boolean validarEntrada() {
     String emailValidar = email.getText();
-    String emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+    String emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]{2,}\\.[a-zA-Z]{2,}$";
 
     if (emailValidar == null || !Pattern.matches(emailRegex, emailValidar)) {
       mensagemErro.setText("Email Incorreto");

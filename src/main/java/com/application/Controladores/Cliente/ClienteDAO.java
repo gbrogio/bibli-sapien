@@ -27,6 +27,7 @@ public class ClienteDAO extends ClienteAbstrato {
     for (int i = 0; i < db.clientes.size(); i++) {
       if (db.clientes.get(i).getId() == idCliente) {
         db.clientes.remove(i);
+        db.emprestimos.removeIf(emprestimo -> emprestimo.getClienteId() == idCliente);
         break;
       }
     }

@@ -27,6 +27,7 @@ public class LivrosDAO extends LivroAbstrato {
     for (int i = 0; i < db.livros.size(); i++) {
       if (db.livros.get(i).getId() == idLivro) {
         db.livros.remove(i);
+        db.emprestimos.removeIf(emprestimo -> emprestimo.getLivroId() == idLivro);
         break;
       }
     }

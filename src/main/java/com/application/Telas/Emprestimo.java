@@ -13,13 +13,20 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
 public class Emprestimo extends ControladorEmprestimos {
-  @FXML private TextField livroId;
-  @FXML private TextField clienteId;
-  @FXML private DatePicker dataEmprestimo;
-  @FXML private Text mensagemErro;
-  @FXML private Button salvarBotao;
-  @FXML private Text livroDetalhes;
-  @FXML private Text clienteDetalhes;
+  @FXML
+  private TextField livroId;
+  @FXML
+  private TextField clienteId;
+  @FXML
+  private DatePicker dataEmprestimo;
+  @FXML
+  private Text mensagemErro;
+  @FXML
+  private Button salvarBotao;
+  @FXML
+  private Text livroDetalhes;
+  @FXML
+  private Text clienteDetalhes;
 
   @FXML
   public void irParaEmprestimos() throws IOException {
@@ -43,15 +50,14 @@ public class Emprestimo extends ControladorEmprestimos {
       return;
     }
 
-    LivroAbstrato livro =
-        ControladorLivros.pegarLivro(Integer.parseInt(livroId.getText()));
+    LivroAbstrato livro = ControladorLivros.pegarLivro(Integer.parseInt(livroId.getText()));
     if (livro == null) {
       livroDetalhes.setText("Livro não encontrado.");
       return;
     }
 
     livroDetalhes.setText("Livro: " + livro.getTitulo() + " - " +
-                          livro.getAutor());
+        livro.getAutor());
   }
 
   @FXML
@@ -61,8 +67,7 @@ public class Emprestimo extends ControladorEmprestimos {
       return;
     }
 
-    ClienteAbstrato cliente =
-        ControladorCliente.pegarCliente(Integer.parseInt(clienteId.getText()));
+    ClienteAbstrato cliente = ControladorCliente.pegarCliente(Integer.parseInt(clienteId.getText()));
     if (cliente == null) {
       clienteDetalhes.setText("Cliente não encontrado.");
       return;
@@ -100,11 +105,11 @@ public class Emprestimo extends ControladorEmprestimos {
 
     if (dataEmprestimo.getValue() == null) {
       sucesso = this.emprestarLivro(Integer.parseInt(livroId.getText()),
-                                    Integer.parseInt(clienteId.getText()));
+          Integer.parseInt(clienteId.getText()));
     } else {
       sucesso = this.emprestarLivro(Integer.parseInt(livroId.getText()),
-                                    Integer.parseInt(clienteId.getText()),
-                                    dataEmprestimo.getValue());
+          Integer.parseInt(clienteId.getText()),
+          dataEmprestimo.getValue());
     }
 
     salvarBotao.setText("SALVAR");
@@ -121,7 +126,8 @@ public class Emprestimo extends ControladorEmprestimos {
 
   public boolean validarEntrada() {
     if (dataEmprestimo.getValue() != null &&
-        dataEmprestimo.getValue().isAfter(java.time.LocalDate.now())) {
+        (dataEmprestimo.getValue().isAfter(java.time.LocalDate.now()) ||
+            dataEmprestimo.getValue().isBefore(java.time.LocalDate.now().minusMonths(1)))) {
       mensagemErro.setText("Ano invalido!");
       return true;
     }
